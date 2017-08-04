@@ -1,7 +1,7 @@
 {
-  "name": "vue-ssr",
-  "description": "A Vue.js project",
-  "author": "Evan You <yyx990803@gmail.com>",
+  "name": "node-wedding-imgseo-web",
+  "description": "vue-ssr",
+  "author": "chenzhenxing@meituan.com",
   "private": true,
   "scripts": {
     "dev": "node server",

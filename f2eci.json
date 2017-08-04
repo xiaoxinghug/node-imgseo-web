@@ -1,0 +1,11 @@
+{
+    "scripts": {
+        "start": "cross-env NODE_ENV=production node server"
+    },
+    "dist": "./dist",
+    "urlPrefix": "http://local.51ping.com:9074/",
+    "static-src": "static",
+    "serverDist": "./dist",
+    "env": "beta",
+    "noDevDep": true
+}
