@@ -1,5 +1,6 @@
 {
     "scripts": {
+        "build": "rimraf dist && npm run build:client && npm run build:server",
         "start": "cross-env NODE_ENV=production node server"
     },
     "dist": "./dist",
