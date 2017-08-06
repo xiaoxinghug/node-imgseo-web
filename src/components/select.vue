@@ -7,7 +7,9 @@
       </div>
       <transition name="fade">
             <div class="content"v-if="fenglist && fenglist.length>0"v-show="showselect && showIndex == 0">
-                    <span v-for="(item,index) in fenglist"@click="fengListclick(item,index)":class="{typeactive:styleIndex ==index}">{{item.tagName}}</span>
+                <router-link :to="`/wedphotos/weddingphoto/f${item.tagId}c${sceneTagId}`"v-for="(item,index) in fenglist":key="index">
+                   <span @click="fengListclick(item,index)":class="{typeactive:styleIndex ==index}">{{item.tagName}}</span>
+               </router-link>
             </div>
       </transition>
       <transition name="fade">
@@ -19,13 +21,10 @@
 </template>
 
 <script>
-// import { mapState} from 'vuex';
 export default {
   name: '',
   data () {
     return {
-    //   fenglist: [{'tagName':'海景','tagId':0},{'tagName':'不限风格','tagId':1},{'tagName':'韩式','tagId':2},{'tagName':'欧美','tagId':3},{'tagName':'小清新','tagId':4},{'tagName':'海景','tagId':5}],
-    //   stylelist:[{'tagName':'海景','tagId':0},{'tagName':'韩式','tagId':1},{'tagName':'欧美','tagId':3}],
       data : [{'title':'风格'},{'title':'场景'}],
       showselect:false,
       showIndex:null,
@@ -35,7 +34,6 @@ export default {
     }
   },
   created(){
-    //   console.log(this.$store.state.styleTagId)
   },
   props:['fenglist','stylelist'],
   computed:{
@@ -44,12 +42,18 @@ export default {
     },
     slist(){
         return this._props.stylelist;
+    },
+    sceneTagId(){
+        return this.$store.state.sceneTagId;
+    },
+    styleTagId(){
+        return this.$store.state.styleTagId;
     }
   },
   mounted(){
     // console.log();
     // console.log();
-    // console.log(this.$store.state.styleTagId);
+    console.log(this.$store.state.styleTagId);
     this.activeFn(this.fenglist,this.$store.state.styleTagId);
     this.activeStyle(this.stylelist,this.$store.state.sceneTagId);
     // console.log(this.styleIndex);
@@ -90,29 +94,20 @@ export default {
         this.showselect = !this.showselect;
     },
     styleListclick(data,index){
-        console.log(data.tagId);
-        console.log(this.$store.state.sceneTagId);
+        // console.log(data.tagId);
+        // console.log(this.$store.state.styleTagId);
+        this.$store.state.styleTagId =  data.tagId;
         if (!!document){
-            location.href = location.host+`/wedphotos/weddingphoto/f${this.$store.state.styleTagId}c${data.tagId}`;
+            // location.href = location.host+`/wedphotos/weddingphoto/f${this.$store.state.styleTagId}c${data.tagId}`;
         }else{
-            this.$router.push(`f${this.$store.state.styleTagId}c${data.tagId}`);
+            // this.$router.push(`f${this.$store.state.styleTagId}c${data.tagId}`);
         }
-        // if (this.typeIndex == index){
-        //      return;
-        // }
-        // setTimeout(()=>{
-        //     // this.$store.state.wateritem = [];
-        //     this.$store.dispatch('getWaterData');
-        //     this.showselect = false;
-        //     this.showIndex = null;
-        //     console.log(this.list);
-        // },500)
-        // this.typeIndex =  index;
-        // this.parentTempIndex = this.showIndex;
-        // this.tempIndex = index;
     },
     fengListclick(data,index){
-      this.$router.push(`f${data.tagId}c${this.$store.state.sceneTagId}`);
+        console.log(data.tagId);
+        console.log(this.$store.state.sceneTagId);
+        this.$store.state.sceneTagId =  data.tagId;
+    //   this.$router.push(`f${data.tagId}c${this.$store.state.sceneTagId}`);
     }
   }
 }

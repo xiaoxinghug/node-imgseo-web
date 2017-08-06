@@ -2,35 +2,20 @@
   <div class="detaill-list">
     <h1>相关推荐</h1>
     <div class="content">
-        <waterfall
-        :align="align"
-        :line-gap="200"
-        :min-line-gap="100"
-        :max-line-gap="220"
-        :single-max-width="300"
-        :watch="items"
-        ref="waterfall"
-      >
-        <!-- each component is wrapped by a waterfall slot -->
-        <waterfall-slot
-          v-for="(item, index) in items"
-          :width="item.width"
-          :height="item.height"
-          :order="index"
-          :key="item.index"
-          move-class="item-move"
-        >
-         <List :List="item":isShadow="true"></List>
-        </waterfall-slot>
-      </waterfall>
+      <div class="left">
+            <List :List="items":isShadow="true"></List>
+      </div>
+      <div class="right">
+            <List :List="ritems":isShadow="true"></List>
+      </div>
     </div>
-    <div class="more"v-if="!isBusy"@click="loadMore()">查看更多<span class="loadarrow"></span></div>
+    <div class="more"v-if="!isBusy"@click="addItems()">查看更多<span class="loadarrow"></span></div>
     <div class="more"v-if="isBusy">加载中...</div>
   </div>
 </template>
 
 <script>
-import { Waterfall, WaterfallSlot } from '../lib/vue-waterfall.min.js';
+// import { Waterfall, WaterfallSlot } from '../lib/vue-waterfall.min.js';
 import List from '../components/list.vue';
 export default {
   name: '',
@@ -39,64 +24,353 @@ export default {
       align:'center',
       lastIndex:0,
       isBusy: false,
-      moreData:[{
-          "picUrl":"//p0.meituan.net/wedding/4f7d783ec5a65ac7c4bd6ec04bf18a7c489718.jpg@183w_244h_1e_1c_1l_85q|watermark=0.webp",
-          "shopName":"放学路上别走",
-          "tip":['韩式','复古','海景'],
-          'viewnumber':5967,
-          'width':170,
-          'height':290,
-          'id':7
-        },{
-          "picUrl":"//p0.meituan.net/wedding/732fc2cecf2d8b3ce00a840f01f5f9651047643.jpg@200w_150h_1e_1c_1l_85q|watermark=0.webp",
-          "shopName":"回家路上别走",
-          "tip":['韩式','海景'],
-          'viewnumber':5968,
-          'width':170,
-          'height':200,
-          'id':8		
-        },{
-          "picUrl":"//p0.meituan.net/wedding/732fc2cecf2d8b3ce00a840f01f5f9651047643.jpg@200w_150h_1e_1c_1l_85q|watermark=0.webp",
-          "shopName":"放学路上别走dsdsdsdsdsss",
-          "tip":['韩式','复古','海景'],
-          'viewnumber':5965,
-          'width':170,
-          'height':200,
-          'id':9
-        
-        }, {
-          "picUrl":"//p1.meituan.net/wedding/9e86ccef664f6523db2a7d0c07305462354739.jpg@183w_244h_1e_1c_1l_85q|watermark=0.webp",
-          "shopName":"回家路上别走",
-          "tip":['韩式','海景'],
-          'viewnumber':5966,
-          'width':170,
-          'height':290,
-          'id':10
-
-        },{
-          "picUrl":"//p0.meituan.net/wedding/4f7d783ec5a65ac7c4bd6ec04bf18a7c489718.jpg@183w_244h_1e_1c_1l_85q|watermark=0.webp",
-          "shopName":"放学路上别走",
-          "tip":['韩式','复古','海景'],
-          'viewnumber':5967,
-          'width':170,
-          'height':290,
-          'id':11
-
-        },{
-          "picUrl":"//p0.meituan.net/wedding/732fc2cecf2d8b3ce00a840f01f5f9651047643.jpg@200w_150h_1e_1c_1l_85q|watermark=0.webp",
-          "shopName":"回家路上别走",
-          "tip":['韩式','海景'],
-          'viewnumber':5968,
-          'width':170,
-          'height':200,
-          'id':12
-        }]
+      moreData:[
+        {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "欧美",
+          tagId: "2"
+          },
+          {
+          tagType: 2,
+          tagName: "水下",
+          tagId: "2"
+          }
+          ],
+          id: "295332_99665836",
+          picWight: 640,
+          picUrl: "//p0.meituan.net/dpmerchantimage/5233883e-6907-4d89-b953-123b334de33d.jpg%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "巴黎婚纱国际旗舰店【预约制】",
+          shopId: 47959941,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "22婚纱照图片@案例哪里",
+          viewCount: 18920,
+          relationId: 295332
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "欧美",
+          tagId: "2"
+          },
+          {
+          tagType: 2,
+          tagName: "水下",
+          tagId: "2"
+          }
+          ],
+          id: "295331_99665831",
+          picWight: 640,
+          picUrl: "//p1.meituan.net/dpmerchantimage/a8c05916-ac8a-43bd-b70c-970ce136ee93.jpg%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "巴黎婚纱国际旗舰店",
+          shopId: 1798321,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "22婚纱照图片@案例哪里",
+          viewCount: 18820,
+          relationId: 295331
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "欧美",
+          tagId: "2"
+          },
+          {
+          tagType: 2,
+          tagName: "水下",
+          tagId: "2"
+          }
+          ],
+          id: "295332_99665834",
+          picWight: 640,
+          picUrl: "//p1.meituan.net/dpmerchantimage/eb549f6e-27d3-44cd-a17f-671aa67a01ce.bmp%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "巴黎婚纱国际旗舰店【预约制】",
+          shopId: 47959941,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "22婚纱照图片@案例哪里",
+          viewCount: 18686,
+          relationId: 295332
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "性感",
+          tagId: "4"
+          },
+          {
+          tagType: 2,
+          tagName: "海景",
+          tagId: "1"
+          }
+          ],
+          id: "9887_97585848",
+          picWight: 640,
+          picUrl: "//p0.meituan.net/wedding/327ff6a97739e5643765e2cf5d8d3628779250.jpg%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "韩国首尔SUM STUDIO",
+          shopId: 4275105,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "41婚纱照图片@蒙马特手扎",
+          viewCount: 18386,
+          relationId: 9887
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "韩式",
+          tagId: "1"
+          },
+          {
+          tagType: 2,
+          tagName: "海景",
+          tagId: "1"
+          }
+          ],
+          id: "98347_99063337",
+          picWight: 640,
+          picUrl: "//p0.meituan.net/wedding/0639b2baa7025a351697a8da48c0fc5b66442.png%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "古摄影·全球华人摄影连锁",
+          shopId: 3278236,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "11婚纱照图片@哈哈哈",
+          viewCount: 18250,
+          relationId: 98347
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "欧美",
+          tagId: "2"
+          },
+          {
+          tagType: 2,
+          tagName: "水下",
+          tagId: "2"
+          }
+          ],
+          id: "295332_99665833",
+          picWight: 640,
+          picUrl: "//p1.meituan.net/dpmerchantimage/a8c05916-ac8a-43bd-b70c-970ce136ee93.jpg%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "巴黎婚纱国际旗舰店【预约制】",
+          shopId: 47959941,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "22婚纱照图片@案例哪里",
+          viewCount: 18162,
+          relationId: 295332
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "日系",
+          tagId: "8"
+          },
+          {
+          tagType: 2,
+          tagName: "夜景",
+          tagId: "8"
+          }
+          ],
+          id: "295229_678445399",
+          picWight: 640,
+          picUrl: "//p0.meituan.net/wedding/4a577945ca688836f98080c0931e8d041497744.jpg%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "巴黎婚纱国际旗舰店",
+          shopId: 1798321,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "88婚纱照图片@测试案例179",
+          viewCount: 18132,
+          relationId: 295229
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "韩式",
+          tagId: "1"
+          },
+          {
+          tagType: 2,
+          tagName: "水下",
+          tagId: "2"
+          }
+          ],
+          id: "295230_678424947",
+          picWight: 640,
+          picUrl: "//p1.meituan.net/wedding/922317f3b02411ac87680203097ff4e0525518.jpg%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "巴黎婚纱国际旗舰店",
+          shopId: 1798321,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "12婚纱照图片@测试案例181",
+          viewCount: 18057,
+          relationId: 295230
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "欧美",
+          tagId: "2"
+          },
+          {
+          tagType: 2,
+          tagName: "水下",
+          tagId: "2"
+          }
+          ],
+          id: "295331_99665829",
+          picWight: 640,
+          picUrl: "//p1.meituan.net/dpmerchantimage/eb549f6e-27d3-44cd-a17f-671aa67a01ce.bmp%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "巴黎婚纱国际旗舰店",
+          shopId: 1798321,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "22婚纱照图片@案例哪里",
+          viewCount: 17535,
+          relationId: 295331
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "欧美",
+          tagId: "2"
+          },
+          {
+          tagType: 2,
+          tagName: "水下",
+          tagId: "2"
+          }
+          ],
+          id: "295331_99665834",
+          picWight: 640,
+          picUrl: "//p1.meituan.net/dpmerchantimage/eb549f6e-27d3-44cd-a17f-671aa67a01ce.bmp%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "巴黎婚纱国际旗舰店",
+          shopId: 1798321,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "22婚纱照图片@案例哪里",
+          viewCount: 17504,
+          relationId: 295331
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "韩式",
+          tagId: "1"
+          },
+          {
+          tagType: 2,
+          tagName: "水下",
+          tagId: "2"
+          }
+          ],
+          id: "295230_678424919",
+          picWight: 640,
+          picUrl: "//p1.meituan.net/wedding/e74555f71a78efd6414289eb9159143f1876021.jpg%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "巴黎婚纱国际旗舰店",
+          shopId: 1798321,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "12婚纱照图片@测试案例181",
+          viewCount: 17386,
+          relationId: 295230
+          },
+          {
+          tags: [
+          {
+          tagType: 1,
+          tagName: "韩式",
+          tagId: "1"
+          },
+          {
+          tagType: 2,
+          tagName: "海景",
+          tagId: "1"
+          }
+          ],
+          id: "98659_99063337",
+          picWight: 640,
+          picUrl: "//p0.meituan.net/wedding/0639b2baa7025a351697a8da48c0fc5b66442.png%40640w_480h_0e_1l%7Cwatermark%3D0",
+          cityId: 1,
+          shopName: "麦田婚纱摄影sdsd",
+          shopId: 2557600,
+          categoryId: [
+          "1631"
+          ],
+          pichight: 480,
+          picName: "11婚纱照图片@哈哈哈",
+          viewCount: 17336,
+          relationId: 98659
+          }
+        ]
     }
   },
   props:['detailwater'],
   computed:{
   		items: function (){
-         return this._props.detailwater
+        var odditem = [];
+         for (var i = 0 ; i < this._props.detailwater.length; i ++){
+                if (i % 2 != 0){
+                    odditem.push(this._props.detailwater[i]);
+                }
+         }
+         return odditem
+      },
+      ritems: function(){
+        var noOdditem = [];
+         for (var i = 0 ; i < this._props.detailwater.length; i ++){
+                if (i % 2 == 0){
+                    noOdditem.push(this._props.detailwater[i]);
+                }
+         }
+         return noOdditem
       }
 	},
   created(){
@@ -105,18 +379,6 @@ export default {
   mounted(){
   },
   methods:{
-    //   generateRandomItems(data){
-    //       var item ={}, i
-    //         for (i = 0; i < data.length; i++) {
-    //             item ={
-    //             index: this.lastIndex++,
-    //             width: 200,
-    //             height: 160
-    //             }
-    //             data[i] = Object.assign(data[i],item);
-    //         }
-    //        return data
-    //   },
      loadMore (){
 
      },
@@ -128,15 +390,13 @@ export default {
         //   alert('加载内容太多了，为了不影响你的浏览刷新页面')
         // }
         setTimeout(()=>{
-            // this.$store.state.wateritem =  this.$store.state.wateritem.concat(this.moreData);
+            this.$store.state.detailwater =  this.$store.state.detailwater.concat(this.moreData);
             this.isBusy = false;
         },500)
         
      }
   },
   components: {
-    Waterfall,
-    WaterfallSlot,
     List
   }
 }
@@ -150,11 +410,11 @@ export default {
     margin-top:0.15rem;
     width:100%;
     .content{
-        width:95%;
-        margin:0 2.5%;
-        margin-top:0.15rem;
-            min-height:10rem;
-        // padding: 0.1rem;
+        padding:0.1rem;
+        .left,.right{
+          width:50%;
+          float:left;
+        }
     }
   }
   h1{
@@ -171,6 +431,8 @@ export default {
    font-size:0.13rem;
    text-indent:39%;
    margin-top:0.15rem;
+   float:left;
+   width:100%;
 //    float:left;
 //    width:92%;
 //    margin:0 4%;
@@ -181,87 +443,8 @@ export default {
       background-size:contain;
       width:0.12rem;
       top:42%;
-      right:1.50rem;
+      right:1.60rem;
       height:0.06rem;
    }
  }
-// .detail-list-water{
-//         // height:100%;
-//         display:inline-block;
-//         min-height:150px;
-//         position: relative;
-//         width:100%;
-//         // margin:5px;
-//         .img{
-//             // overflow:hidden;
-//             min-height:80px;
-//         }
-//         img{
-//             max-width:100%;
-//             display:block;
-//             border:none;
-//         }
-//         .content{
-//             padding:0px 0.08rem 0.08rem 0.08rem;
-//         }
-//         .bottom{
-//             // position:absolute;
-//             width:100%;
-//             bottom:0px;
-//             height:0.72rem;
-//             background-color:#fff;
-//             margin-bottom:0.1rem;
-//             -webkit-box-shadow: 1px 1px 1px 1px#E6E6E6; /* 老的 Firefox */
-//             -moz-box-shadow: 1px 1px 1px 1px #E6E6E6; /* 老的 Firefox */
-//             box-shadow: 1px 1px 1px 1px #E6E6E6;
-//             .tip{
-//                 margin-top:0.05rem;
-//                 span{
-//                     display:inline-block;
-//                     color:#999999;
-//                     position:relative;
-//                     font-size:0.12rem;
-//                     padding-right:0.1rem;
-//                 }
-//                 span::after{
-//                     content:"|";
-//                     position:absolute;
-//                     right:0.035rem;
-//                 }
-//                 span:last-child::after{
-//                     content:"";
-//                 }
-//             }
-//             .view{
-//                 margin-top:0.08rem;
-//                 span{
-//                     display:inline-block;
-//                     font-size:0.1rem;
-//                     color:#999999;
-//                 }
-//                 .eyes{
-//                     height:0.08rem;
-//                     width:0.12rem;
-//                     background:url(../assets/view.png)no-repeat center;
-//                     background-size:contain;
-//                 }
-//             }
-//             h5{
-//                 color: #111111;
-//                 font-size:0.14rem;
-//                 font-weight:400;
-//                 letter-spacing:0;
-//                 line-height:0.14rem;
-//                 padding-top:0.08rem;
-//                 .elli();
-//             }
-//         }
-//     }
-//     .fade-enter-active, .fade-leave-active {
-//         -webkit-transition: all .5s ease;
-//         transition: all .5s ease;
-//     }
-//     .fade-enter, .fade-leave-to {
-//         opacity: 0;
-//     }
 </style>

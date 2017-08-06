@@ -1,87 +1,132 @@
 import fetch from "isomorphic-fetch"
-// const detaildata={
-// 	  "top":{
-// 		"shopName":"最新欧美大气婚纱照",
-// 	  	"shopUrl":"//p0.meituan.net/wedding/35c0e9fc201cb9950c3778d9b34619bb368052.jpg@320w_240h_1e_1c_1l_80q|watermark=0.webp",
-// 		 "tip":['sb','复古','海景'],
-// 		 "view":5874 
-// 	  },
-// 	  "center":{
-// 		  "shopName":"回家看看",
-// 		  'picUrl':"//p1.meituan.net/wedding/c400ce938a021652d78f73d28b64e858389933.jpg@200w_150h_1e_1c_1l|watermark=0.webp",
-// 		  "map":'sb',
-// 		  "type":"婚纱礼服",
-// 		  "number":5900,
-// 		   "star":0.5
-// 	  },
-// 	  "bottom":{
-// 		 "picUrl":['//p0.meituan.net/wedding/35c0e9fc201cb9950c3778d9b34619bb368052.jpg@320w_240h_1e_1c_1l_80q|watermark=0.webp','//p0.meituan.net/wedding/35c0e9fc201cb9950c3778d9b34619bb368052.jpg@320w_240h_1e_1c_1l_80q|watermark=0.webp','//p0.meituan.net/wedding/35c0e9fc201cb9950c3778d9b34619bb368052.jpg@320w_240h_1e_1c_1l_80q|watermark=0.webp'],
-// 		  "caseName":"海岛摄影系ds",
-// 		 "tip":['韩式','特色案例'] 
-// 	  }
-// 	}
 const detailwater =[
 	{
-		"picUrl":"//p0.meituan.net/wedding/732fc2cecf2d8b3ce00a840f01f5f9651047643.jpg@200w_150h_1e_1c_1l_85q|watermark=0.webp",
-		"shopName":"放学路上别走dsdsdsdsdsss",
-		"tip":['韩式','复古','海景'],
-		'viewnumber':5965,
-		'width':170,
-		'height':200,
-		'id':1
-	}, {
-		"picUrl":"//p1.meituan.net/wedding/9e86ccef664f6523db2a7d0c07305462354739.jpg@183w_244h_1e_1c_1l_85q|watermark=0.webp",
-		"shopName":"回家路上别走",
-		"tip":['韩式','海景'],
-		'viewnumber':5966,
-		'width':170,
-		'height':290,
-	    'id':2
-	},{
-		"picUrl":"//p0.meituan.net/wedding/4f7d783ec5a65ac7c4bd6ec04bf18a7c489718.jpg@183w_244h_1e_1c_1l_85q|watermark=0.webp",
-		"shopName":"放学路上别走",
-		"tip":['韩式','复古','海景'],
-		'viewnumber':5967,
-		'width':170,
-		'height':290,
-		'id':3
-	},{
-		"picUrl":"//p0.meituan.net/wedding/732fc2cecf2d8b3ce00a840f01f5f9651047643.jpg@200w_150h_1e_1c_1l_85q|watermark=0.webp",
-		"shopName":"回家路上别走",
-		"tip":['韩式','海景'],
-		'viewnumber':5968,
-		'width':170,
-		'height':200,
-		'id':4
-	},{
-		"picUrl":"//p0.meituan.net/wedding/732fc2cecf2d8b3ce00a840f01f5f9651047643.jpg@200w_150h_1e_1c_1l_85q|watermark=0.webp",
-		"shopName":"放学路上别走dsdsdsdsdsss",
-		"tip":['韩式','复古','海景'],
-		'viewnumber':5965,
-		'width':170,
-		'height':200,
-		'id':5
+		tags: [
+		{
+		tagType: 1,
+		tagName: "欧美",
+		tagId: "2"
+		},
+		{
+		tagType: 2,
+		tagName: "水下",
+		tagId: "2"
+		}
+		],
+	id: "295331_99665829",
+	picWight: 320,
+	picUrl: "//p1.meituan.net/dpmerchantimage/eb549f6e-27d3-44cd-a17f-671aa67a01ce.bmp%40320w_0e_1l%7Cwatermark%3D0",
+	cityId: 1,
+	shopName: "巴黎婚纱国际旗舰店",
+	shopId: 1798321,
+	categoryId: [
+	"1631"
+	],
+	pichight: 0,
+	picName: "22婚纱照图片@案例哪里",
+	viewCount: 17535,
+	relationId: 295331
+	},
+	{
+	tags: [
+	{
+	tagType: 1,
+	tagName: "欧美",
+	tagId: "2"
+	},
+	{
+	tagType: 2,
+	tagName: "水下",
+	tagId: "2"
 	}
+	],
+	id: "295331_99665834",
+	picWight: 320,
+	picUrl: "//p1.meituan.net/dpmerchantimage/eb549f6e-27d3-44cd-a17f-671aa67a01ce.bmp%40320w_0e_1l%7Cwatermark%3D0",
+	cityId: 1,
+	shopName: "巴黎婚纱国际旗舰店",
+	shopId: 1798321,
+	categoryId: [
+	"1631"
+	],
+	pichight: 0,
+	picName: "22婚纱照图片@案例哪里",
+	viewCount: 17504,
+	relationId: 295331
+	},
+	{
+	tags: [
+	{
+	tagType: 1,
+	tagName: "韩式",
+	tagId: "1"
+	},
+	{
+	tagType: 2,
+	tagName: "水下",
+	tagId: "2"
+	}
+	],
+	id: "295230_678424919",
+	picWight: 320,
+	picUrl: "//p1.meituan.net/wedding/e74555f71a78efd6414289eb9159143f1876021.jpg%40320w_0e_1l%7Cwatermark%3D0",
+	cityId: 1,
+	shopName: "巴黎婚纱国际旗舰店",
+	shopId: 1798321,
+	categoryId: [
+	"1631"
+	],
+	pichight: 0,
+	picName: "12婚纱照图片@测试案例181",
+	viewCount: 17386,
+	relationId: 295230
+	},
+	{
+	tags: [
+	{
+	tagType: 1,
+	tagName: "韩式",
+	tagId: "1"
+	},
+	{
+	tagType: 2,
+	tagName: "海景",
+	tagId: "1"
+	}
+	],
+	id: "98659_99063337",
+	picWight: 320,
+	picUrl: "//p0.meituan.net/wedding/0639b2baa7025a351697a8da48c0fc5b66442.png%40320w_0e_1l%7Cwatermark%3D0",
+	cityId: 1,
+	shopName: "麦田婚纱摄影sdsd",
+	shopId: 2557600,
+	categoryId: [
+	"1631"
+	],
+	pichight: 0,
+	picName: "11婚纱照图片@哈哈哈",
+	viewCount: 17336,
+	relationId: 98659
+	}
+
 ]
 export default {
 	getIndexData({ commit, state }) {
+		console.log("-----------------")
+		state.styleTagId = parseInt(global.styleTagId) || 0;
+		state.sceneTagId = parseInt(global.sceneTagId) || 0;
 	return  fetch('http://m.51ping.com/wedding/ajax/m/wedpiclib/index',{
 			method:'post',
 			credentials: 'include',
 			headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           	},
-			body:`categoryId=1631&styleTagId=${global.styleTagId}&sceneTagId=${global.sceneTagId}&source=3&cityId=0` 
+			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0` 
 		}).then(function(response) {
-			    // console.log(response);
             	return response.json();
         	}).then(res => {
-				let styleTagId =  global.styleTagId;
-				let sceneTagId =  global.sceneTagId;
 				return commit('GET_INDEXDATA', {
-						res,
-						styleTagId,
-						sceneTagId
+						res
 				})
 			})
 	},
@@ -93,7 +138,7 @@ export default {
 			headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           	},
-			body:`categoryId=1631&styleTagId=${global.styleTagId}&sceneTagId=${global.sceneTagId}&source=3&cityId=0&pagesize=10&page=1` 
+			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=10&page=1` 
 		}).then(function(response) {
 			// console.log(`${global.styleTagId}`);
             return response.json();
@@ -121,7 +166,7 @@ export default {
 			})
 	},
 	getDetailWater({commit,state}){
-		   commit('GET_DETAILWATER',{
+		   return commit('GET_DETAILWATER',{
 			   detailwater
 		   })
 	},

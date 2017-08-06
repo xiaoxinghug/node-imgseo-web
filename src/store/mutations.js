@@ -14,8 +14,8 @@ export default {
 	},
 	[GET_INDEXDATA](state, payload){
 		// setTimeout(()=>{
-		state.styleTagId = parseInt(payload.styleTagId);
-		state.sceneTagId = parseInt(payload.sceneTagId);
+		// state.styleTagId = parseInt(payload.styleTagId) || 0;
+		// state.sceneTagId = parseInt(payload.sceneTagId) || 0;
 		state.indexdata = payload.res.msg;
 		state.title = payload.res.msg.pagetitle;
 		state.keywords = payload.res.msg.pagekeywords;
@@ -37,6 +37,7 @@ export default {
 	},
 	[GET_DETAILWATER](state, payload){
 		// setTimeout(()=>{
+			console.log(payload);
 		state.detailwater = payload.detailwater	
 		// },50)
 	},

@@ -1,35 +1,17 @@
 <template>
     <div class="water"v-if="items && items.length>0">
-       <div class="content"style="min-height:26rem">
-          <waterfall
-          :align="align"
-          :line-gap="200"
-          :min-line-gap="100"
-          :max-line-gap="220"
-          :single-max-width="300"
-          :watch="items"
-          ref="waterfall"
-          @reflowed="reflowed"
-        >
-        <waterfall-slot
-          v-for="(item, index) in items"
-          :width="342"
-          :height="item.pichight"
-          :order="index"
-          :key="item.index"
-          move-class="item-move"
-        >
-         <List :List="item"></List>
-        </waterfall-slot>
-        </waterfall>
-       </div>
+         <div class="left">
+              <List :List="items"></List>
+         </div>
+         <div class="right">
+              <List :List="ritems"></List>
+         </div>
       <div class="more"v-if="!isBusy"@click="addItems()">查看更多<span class="loadarrow"></span></div>
       <div class="more"v-if="isBusy">加载中...</div>
     </div>
 </template>
 
 <script>
-import { Waterfall, WaterfallSlot } from '../lib/vue-waterfall.min.js';
 import List from '../components/list.vue';
 export default {
   name: '',
@@ -369,32 +351,30 @@ export default {
   props:['data'],
   computed:{
   		items: function (){
-         return this._props.data
+        var odditem = [];
+         for (var i = 0 ; i < this._props.data.length; i ++){
+                if (i % 2 != 0){
+                    odditem.push(this._props.data[i]);
+                }
+         }
+         return odditem
+      },
+      ritems: function(){
+        var noOdditem = [];
+         for (var i = 0 ; i < this._props.data.length; i ++){
+                if (i % 2 == 0){
+                    noOdditem.push(this._props.data[i]);
+                }
+         }
+         return noOdditem
       }
 	},
   created(){
   //  console.log(this._props);
   },
   mounted(){
-    this.getPicheight(this.items);
   },
   methods:{
-      getPicheight(data){            
-            for (let i = 0; i < data.length; i++) {
-                  var img = new Image();
-                  img.src = this.items[i].picUrl;
-                  if(img.complete) {
-                     console.log(1);
-                     continue;
-                  }
-                  else {
-                      img.onload = function() {
-                          console.log(img.height);
-                      };
-                  }
-            } 
-           return data
-      },
      loadMore (){
 
      },
@@ -402,23 +382,17 @@ export default {
       console.log(2);
      },
      addItems () {
-        // if (!this.isBusy && this.items.length < 500) {
         this.isBusy = true
-        //   this.items.push.apply(this.items, )
-        // }else{
-        //   alert('加载内容太多了，为了不影响你的浏览刷新页面')
-        // }
         setTimeout(()=>{
             this.$store.state.wateritem =  this.$store.state.wateritem.concat(this.moreData);
-            this.getPicheight(this.items)
             this.isBusy = false;
         },500)
         
      }
   },
   components: {
-    Waterfall,
-    WaterfallSlot,
+    // Waterfall,
+    // WaterfallSlot,
     List
   }
 }
@@ -427,9 +401,12 @@ export default {
 <style lang="less">
  .water{
      float:left;
-     width:96%;
-     margin:0 2%;
      margin-top:0.07rem;
+     padding:0px 0.07rem;
+     .left,.right{
+       width:50%;
+       float:left;
+     }
  }
  .more{
    height:0.45rem;
@@ -437,7 +414,8 @@ export default {
    background-color:#fff;
    position:relative;
    text-indent:37%;
-   margin:0.15rem 0.05rem 0rem 0.05rem;
+   float:left;
+   width:100%;
    .loadarrow{
      display:inline-block;
      position:absolute;

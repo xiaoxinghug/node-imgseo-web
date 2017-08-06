@@ -20,9 +20,16 @@
 
 import Vue from 'vue'
 import App from './App.vue'
+import VueLazyload from 'vue-lazyload'
 import { createStore } from './store'
 import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
+  Vue.use(VueLazyload, {
+    preLoad: 1.3
+    // error: 'dist/error.png',
+    // loading: 'dist/loading.gif',
+    // attempt: 1
+  })
 // import titleMixin from './util/title'
 // import * as filters from './util/filters'
 

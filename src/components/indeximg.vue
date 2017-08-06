@@ -1,8 +1,10 @@
 <template>
-    <div class="home-img">
-        <img src="../assets/homeimg.png" alt="">
-        <p>最新欧美大气婚纱照</p>
-    </div>
+    <a :href="objBanner.link">
+        <div class="home-img">
+            <img :src="objBanner.pic" alt="">
+            <p>最新欧美大气婚纱照</p>
+        </div>
+    </a> 
 </template>
 
 <script>
@@ -12,6 +14,12 @@ export default {
     return {
       msg: ''
     }
+  },
+  props:['indeximg'],
+  computed:{
+     objBanner:function (){
+         return this._props.indeximg
+     }
   }
 }
 </script>

@@ -9,7 +9,7 @@ export function createRouter (){
         mode: 'history',
         routes: [
           {
-            path: '/wedphotos/weddingphoto',
+            path: '/wedphotos/weddingphoto/f(\\d+)c(\\d+)',
             name: 'Index',
             component: Index
           },
@@ -19,7 +19,7 @@ export function createRouter (){
             component: Index
           },
           {
-            path: '/wedphotos/weddingphoto/f(\\d+)c(\\d+)',
+            path: '/wedphotos/weddingphoto/',
             name: 'Index',
             component: Index
           },

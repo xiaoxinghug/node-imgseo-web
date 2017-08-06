@@ -5,7 +5,7 @@
     <merchant-component :merchant="merchantData"v-if="!!merchantData"></merchant-component>
     <!--<caseComponent :case="caseData"v-if="!!caseData"></caseComponent>-->
     <detailwaterComponent :detailwater="detailWater"v-if="!!detailWater"></detailwaterComponent>
-    <footer-component></footer-component>
+    <footerComponent :title="title"></footerComponent>
   </div>
 </template>
 
@@ -28,7 +28,8 @@ export default {
 	  	detailimgData: state => state.detaildata['top'],
   		merchantData: state => state.detaildata['bottom'],
   		caseData: state => state.detaildata['center'],
-      detailWater: state => state.detailwater
+      detailWater: state => state.detailwater,
+      title : state => state.detaildata['top'].picName,
 	}),
   mounted(){
     // if (window.scrollY) {
@@ -44,8 +45,8 @@ export default {
       //   //  console.log(this.$store);
       // }
   },
-  asyncData ({ store, route: { params: { id }}}) {
-    return store.dispatch('getDetailData')
+  asyncData ({store}) {
+    return store.dispatch('getDetailData'),store.dispatch('getDetailWater')
   },
   methods:{
 

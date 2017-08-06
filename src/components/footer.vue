@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <h5>结婚<span class="arrow"></span>婚纱照大全</h5>
+        <h5>结婚<span class="arrow"></span>婚纱照大全<span class="arrow"v-if="!!titles"></span><span>{{titles}}</span></h5>
         <div class="center">
           <div class="footer-list">
                 <a href="">我的</a>
@@ -27,6 +27,12 @@ export default {
     return {
       msg: ''
     }
+  },
+  props:['title'],
+  computed:{
+      titles:function (){
+          return this._props.title;
+      }
   }
 }
 </script>

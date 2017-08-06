@@ -1,24 +1,26 @@
-<template>
-    <div class="list-water"@click="goDetail(list)">
-        <router-link :to="'/wedphotos/' + list.id">
+<template> 
+   <div class="list">
+    <div class="list-water"@click="goDetail(item)"v-for="item in list">
+        <router-link :to="'/wedphotos/' + item.id">
             <div class="img">
-                <img :src="list.picUrl"/>
+                <img v-lazy="item.picUrl"/>
             </div>
             <div class="bottom":class="[shadow== true ? 'shadow':'']">
                     <div class="content">
-                        <h5>{{list.picName}}</h5>
-                        <div class="tip"v-if="list.tags && list.tags.length>0">
-                            <span v-for="item in list.tags">{{item.tagName}}</span>
+                        <h5>{{item.picName}}</h5>
+                        <div class="tip"v-if="item.tags && item.tags.length>0">
+                            <span v-for="tag in item.tags">{{tag.tagName}}</span>
                             
                         </div>
                         <div class="view">
                             <span class="eyes"></span>
-                            <span>{{list.viewCount}}</span>
+                            <span>{{item.viewCount}}</span>
                         </div>
                     </div>
             </div>
         </router-link>      
     </div>
+   </div>
 </template>
 <script>
 export default {
@@ -38,7 +40,7 @@ export default {
      }
   },
   created(){
-    // console.log(this._props);
+    console.log(this._props.List);
   },
   methods:{
     goDetail(data){
@@ -58,13 +60,16 @@ export default {
             -moz-box-shadow: 1px 1px 1px 1px #E6E6E6; /* 老的 Firefox */
             box-shadow: 1px 1px 1px 1px #E6E6E6;
   }
+  .list{
+    //   width:50%;
+  }
     .list-water{
         height:100%;
         position: relative;
         margin:5px;
-        // background-color:#fff;
         .img{
             overflow:hidden;
+            min-height:100px;
             // height:65%;
         }
         img{
@@ -77,9 +82,9 @@ export default {
             margin:0rem 0.08rem 0.08rem 0.08rem ;
         }
         .bottom{
-            position:absolute;
-            width:100%;
-            bottom:0px;
+            // position:absolute;
+            // width:100%;
+            // bottom:0px;
             height:0.72rem;
             background-color:#fff;
             margin-bottom:0.1rem;

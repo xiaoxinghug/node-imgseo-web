@@ -1,10 +1,10 @@
 <template>
   <div>
     <header-component></header-component>
-    <indexImg-component></indexImg-component>
+    <indexImg-component :indeximg ="indeximg"v-if="!!indeximg"></indexImg-component>
     <select-component :fenglist="fenglist":stylelist="stylelist"></select-component>
-    <water-component :data="wateritem"></water-component>
-    <footer-component></footer-component>
+    <water-component :data="wateritem"v-if="!!wateritem"></water-component>
+    <footer-component :title="title"></footer-component>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
   data(){
     return {
       // waterItems:[]
+      title:"",
       moreData:[
         {
           "picUrl":"//p0.meituan.net/wedding/4f7d783ec5a65ac7c4bd6ec04bf18a7c489718.jpg@183w_244h_1e_1c_1l_85q|watermark=0.webp",
@@ -37,9 +38,11 @@ export default {
   computed:mapState({
         wateritem: state => state.wateritem,
         fenglist : state => state.indexdata.styleTagList,
-        stylelist : state => state.indexdata.scaneTagList
+        stylelist : state => state.indexdata.scaneTagList,
+        indeximg : state => state.indexdata.banner
   }),
   created (){
+    // console.log(this.$store.state.indexdata);
     // this.$store.dispatch('getWaterData');
     // this.waterItems = this.$store.state.wateritem;
     //  console.log(this.$store.state.wateritem);
