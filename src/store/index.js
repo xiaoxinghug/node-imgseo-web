@@ -20,7 +20,13 @@ const state = {
 	keywords:"没救了",
 	description:"结婚",
 	styleTagId:"",
-	sceneTagId:""
+	sceneTagId:"",
+	detailstyleTagId:"",
+	detailsceneTagId:"",
+	pageSize:13,
+	indexPage:1,
+	detailpage:2,
+	detailEnd:false
 	
 }
 

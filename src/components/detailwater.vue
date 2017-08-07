@@ -9,7 +9,7 @@
             <List :List="ritems":isShadow="true"></List>
       </div>
     </div>
-    <div class="more"v-if="!isBusy"@click="addItems()">查看更多<span class="loadarrow"></span></div>
+    <div class="more"v-if="!isBusy && !this.$store.state.detailEnd"@click="addItems()">查看更多<span class="loadarrow"></span></div>
     <div class="more"v-if="isBusy">加载中...</div>
   </div>
 </template>
@@ -375,6 +375,7 @@ export default {
 	},
   created(){
 //    console.log(this._props);
+    this.$store.state.detailpage = 1;
   },
   mounted(){
   },
@@ -384,15 +385,16 @@ export default {
      },
      addItems () {
         // if (!this.isBusy && this.items.length < 500) {
-        this.isBusy = true
-        //   this.items.push.apply(this.items, )
-        // }else{
-        //   alert('加载内容太多了，为了不影响你的浏览刷新页面')
-        // }
-        setTimeout(()=>{
-            this.$store.state.detailwater =  this.$store.state.detailwater.concat(this.moreData);
-            this.isBusy = false;
-        },500)
+        let self = this;
+        this.isBusy = true;
+        this.$store.dispatch('getMoreDetailWater').then(function(){
+           self.isBusy = false
+           console.log(1);
+        })
+        // setTimeout(()=>{
+        //     this.$store.state.detailwater =  this.$store.state.detailwater.concat(this.moreData);
+        //     this.isBusy = false;
+        // },500)
         
      }
   },

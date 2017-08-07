@@ -7,14 +7,16 @@
       </div>
       <transition name="fade">
             <div class="content"v-if="fenglist && fenglist.length>0"v-show="showselect && showIndex == 0">
-                <router-link :to="`/wedphotos/weddingphoto/f${item.tagId}c${sceneTagId}`"v-for="(item,index) in fenglist":key="index">
-                   <span @click="fengListclick(item,index)":class="{typeactive:styleIndex ==index}">{{item.tagName}}</span>
-               </router-link>
+                <a :href="`/wedphotos/weddingphoto/f${item.tagId}c${sceneTagId}`"v-for="(item,index) in fenglist":key="index"@click="fengListclick(item,index)">
+                   <span :class="{typeactive:styleIndex ==index}">{{item.tagName}}</span>
+               </a>
             </div>
       </transition>
       <transition name="fade">
             <div class="content"v-if="stylelist && stylelist.length>0"v-show="showselect && showIndex == 1">
-                 <span v-for="(item,index) in stylelist"@click="styleListclick(item,index)":class="{typeactive:typeIndex ==index}">{{item.tagName}}</span>
+                <a :href="`/wedphotos/weddingphoto/f${styleTagId}c${item.tagId}`"v-for="(item,index) in stylelist":key="index"@click="styleListclick(item,index)">
+                  <span :class="{typeactive:typeIndex ==index}">{{item.tagName}}</span>
+                </a>  
             </div>
       </transition>
     </div>
@@ -96,7 +98,7 @@ export default {
     styleListclick(data,index){
         // console.log(data.tagId);
         // console.log(this.$store.state.styleTagId);
-        this.$store.state.styleTagId =  data.tagId;
+        // this.$store.state.styleTagId =  data.tagId;
         if (!!document){
             // location.href = location.host+`/wedphotos/weddingphoto/f${this.$store.state.styleTagId}c${data.tagId}`;
         }else{
@@ -106,7 +108,7 @@ export default {
     fengListclick(data,index){
         console.log(data.tagId);
         console.log(this.$store.state.sceneTagId);
-        this.$store.state.sceneTagId =  data.tagId;
+        // this.$store.state.sceneTagId =  data.tagId;
     //   this.$router.push(`f${data.tagId}c${this.$store.state.sceneTagId}`);
     }
   }
@@ -136,6 +138,9 @@ export default {
       text-align:center;
       background-color:#fff;
       padding:0.05rem 0px 0.15rem 0.1rem;
+      a{
+          color:#000;
+      }
       span{
           display:inline-block;
           width:0.8rem;

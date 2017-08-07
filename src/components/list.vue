@@ -40,7 +40,7 @@ export default {
      }
   },
   created(){
-    console.log(this._props.List);
+    // console.log(this._props.List);
   },
   methods:{
     goDetail(data){

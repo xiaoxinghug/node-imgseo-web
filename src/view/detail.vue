@@ -32,9 +32,8 @@ export default {
       title : state => state.detaildata['top'].picName,
 	}),
   mounted(){
-    // if (window.scrollY) {
-    //       window.scroll(0, 0);
-    // }
+    console.log(this.$store.state.detailstyleTagId);
+    console.log(this.$store.state.detailsceneTagId);
   },
   created(){
       this.$store.state.wateritem = [];
@@ -46,7 +45,7 @@ export default {
       // }
   },
   asyncData ({store}) {
-    return store.dispatch('getDetailData'),store.dispatch('getDetailWater')
+    return store.dispatch('getDetailData').then(store.dispatch('getDetailWater'));
   },
   methods:{
 

@@ -4,44 +4,44 @@ const INITIALIZE_DATA = 'INITIALIZE_DATA'
 const GET_DETAILDATA = 'GET_DETAILDATA'
 const GET_DETAILWATER = 'GET_DETAILWATER'
 const GET_INDEXDATA = 'GET_INDEXDATA'
+const GET_MOREDETAILWATER = 'GET_MOREDETAILWATER'
 export default {
 	[GET_WATERDATA](state, payload) {
-		//  console.log('-----');
-		//  console.log(payload);
 		if (payload.res.code == 200){
 				state.wateritem = payload.res.msg.records;
 		 }
 	},
 	[GET_INDEXDATA](state, payload){
-		// setTimeout(()=>{
-		// state.styleTagId = parseInt(payload.styleTagId) || 0;
-		// state.sceneTagId = parseInt(payload.sceneTagId) || 0;
-		state.indexdata = payload.res.msg;
-		state.title = payload.res.msg.pagetitle;
-		state.keywords = payload.res.msg.pagekeywords;
-		state.description = payload.res.msg.pagedescription;
-		// },50)
+		if (payload.res.code == 200){
+			state.indexdata = payload.res.msg;
+			state.title = payload.res.msg.pagetitle;
+			state.keywords = payload.res.msg.pagekeywords;
+			state.description = payload.res.msg.pagedescription;
+		}
 	},
 	[GET_DETAILDATA](state, payload){
-		// setTimeout(()=>{
-		   console.log(payload.res);
 		if (payload.res.code == 200){
 			state.detaildata['top'] = payload.res.msg.picDetail;
 			state.detaildata['center'] = payload.res.msg.relatedPics;
 			state.detaildata['bottom'] = payload.res.msg.shop;
-			// console.log(state.detaildata);
+			state.detailstyleTagId = payload.res.msg.picDetail.tags[0].tagId;
+			state.detailsceneTagId = payload.res.msg.picDetail.tags[1].tagId;
 		}
-	    // console.log(state.detaildata);
-		// state.detaildata = payload	
-		// },50)
 	},
 	[GET_DETAILWATER](state, payload){
-		// setTimeout(()=>{
-			console.log(payload);
-		state.detailwater = payload.detailwater	
-		// },50)
+		if (payload.res.code == 200){
+			state.detailwater = payload.res.msg.records;
+		 }
 	},
-	[INITIALIZE_DATA](){
+	[GET_MOREDETAILWATER](state, payload){
+		if (payload.res.code == 200){
+			state.detailwater = state.detailwater.concat(payload.res.msg.records);
+			if (payload.res.msg.records.length < state.pageSize){
+				state.detailEnd = true;
+			}else{
+			    state.detailpage ++;
+			}
+		}
 
 	},
 	[SUB_MIT](state, payload) {
