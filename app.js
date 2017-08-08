@@ -14,7 +14,9 @@ const useMicroCache = process.env.MICRO_CACHE !== 'false'
 const serverInfo =
   `express/${require('express/package.json').version} ` +
   `vue-server-renderer/${require('vue-server-renderer/package.json').version}`
-
+co(function*(){ 
+       yield cortex.init(require('./package.json').name);
+  })
 const app = express()
 // const app = require('@dp/node-server');
 // cortex.init(app);
