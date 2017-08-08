@@ -4,8 +4,10 @@ const LRU = require('lru-cache')
 const express = require('express')
 const favicon = require('serve-favicon')
 const compression = require('compression')
+const co = require('co')
 const resolve = file => path.resolve(__dirname, file)
 const { createBundleRenderer } = require('vue-server-renderer')
+const cortex = require("@dp/cortex4n");
 // const cookieParser = require('cookie-parser');
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
@@ -15,11 +17,13 @@ const serverInfo =
 
 const app = express()
 // const app = require('@dp/node-server');
-
+// cortex.init(app);
 const template = fs.readFileSync(resolve('./src/index.template.html'), 'utf-8')
 // global.cookies = "";
 // console.log(template);
 function createRenderer (bundle, options) {
+  // console.log(bundle);
+  // console.log(options);
   // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
   return createBundleRenderer(bundle, Object.assign(options, {
     template,
@@ -31,7 +35,7 @@ function createRenderer (bundle, options) {
     // this is only needed when vue-server-renderer is npm-linked
     basedir: resolve('./dist'),
     // recommended for performance
-    runInNewContext: false
+    runInNewContext: true
   }))
 }
 
@@ -46,7 +50,7 @@ if (isProd) {
   // tags for any async chunks used during render, avoiding waterfall requests.
   const clientManifest = require('./dist/vue-ssr-client-manifest.json')
   renderer = createRenderer(bundle, {
-    clientManifest
+    // clientManifest
   })
 } else {
   // In development: setup the dev server with watch and hot-reload,
@@ -170,9 +174,16 @@ function render (req, res) {
     // })
     // console.log(indexHTML.head);
     indexHTML.head = parseMeta(indexHTML.head, context.state);
-    res.end(indexHTML.head + indexHTML.tail);
-    console.log('----');
-    console.log(indexHTML.head + indexHTML.tail);
+    let newIndexhtml = indexHTML.head + indexHTML.tail;
+       console.log(newIndexhtml);
+     co(function*(){ 
+      let newHtml = yield cortex.build(newIndexhtml,{});
+          console.log(newHtml); 
+      res.end(newHtml)
+     })
+    // res.end(newIndexhtml);
+    // console.log('----');
+    // console.log(indexHTML.head + indexHTML.tail);
     if (cacheable) {
       microCache.set(req.url, html)
     }

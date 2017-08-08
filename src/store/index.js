@@ -23,7 +23,7 @@ const state = {
 	sceneTagId:"",
 	detailstyleTagId:"",
 	detailsceneTagId:"",
-	pageSize:13,
+	pageSize:16,
 	indexPage:1,
 	detailpage:2,
 	detailEnd:false,

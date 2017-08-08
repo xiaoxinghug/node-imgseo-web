@@ -371,6 +371,7 @@ export default {
 	},
   created(){
   //  console.log(this._props);
+      this.$store.state.detailpage = 2;
   },
   mounted(){
   },

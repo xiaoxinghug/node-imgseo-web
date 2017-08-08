@@ -15,8 +15,10 @@
     "npm": ">=4.0"
   },
   "dependencies": {
+    "@dp/cortex4n": "^2.1.0",
     "@dp/node-server": "^1.6.7",
     "@dp/url-rewrite": "^0.4.40",
+    "co": "^4.6.0",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
     "cross-env": "^4.0.0",
