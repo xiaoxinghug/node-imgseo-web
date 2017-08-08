@@ -100,10 +100,6 @@ function render (req, res) {
   const s = Date.now()
   res.setHeader("Content-Type", "text/html")
   res.setHeader("Server", serverInfo)
-  // console.log(req.cookies);
-  // global.cookies = req.cookies;
-    // console.log(global.cookies);
-    // console.log(req.url.length);
     if (/wedphotos\/weddingphoto/ig.test(req.url)){
         if (req.url.length > 25){
             let parameter = req.url.split('/');
@@ -124,8 +120,8 @@ function render (req, res) {
             // console.log(picArry[length-1]);
             global.picId = picArry[length-1];
   }else {
-            global.styleTagId = "";
-            global.sceneTagId = "";
+            global.styleTagId = 1;
+            global.sceneTagId = 1;
     }
   const handleError = err => {
     if (err.url) {
@@ -174,7 +170,9 @@ function render (req, res) {
     // })
     // console.log(indexHTML.head);
     indexHTML.head = parseMeta(indexHTML.head, context.state);
-    res.end(indexHTML.head + indexHTML.tail)
+    res.end(indexHTML.head + indexHTML.tail);
+    console.log('----');
+    console.log(indexHTML.head + indexHTML.tail);
     if (cacheable) {
       microCache.set(req.url, html)
     }

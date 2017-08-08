@@ -5,6 +5,7 @@ const GET_DETAILDATA = 'GET_DETAILDATA'
 const GET_DETAILWATER = 'GET_DETAILWATER'
 const GET_INDEXDATA = 'GET_INDEXDATA'
 const GET_MOREDETAILWATER = 'GET_MOREDETAILWATER'
+const GET_MOREINDEXWATER = 'GET_MOREINDEXWATER'
 export default {
 	[GET_WATERDATA](state, payload) {
 		if (payload.res.code == 200){
@@ -40,6 +41,17 @@ export default {
 				state.detailEnd = true;
 			}else{
 			    state.detailpage ++;
+			}
+		}
+
+	},
+	[GET_MOREINDEXWATER](state, payload){
+		if (payload.res.code == 200){
+			state.wateritem = state.wateritem.concat(payload.res.msg.records);
+			if (payload.res.msg.records.length < state.pageSize){
+				state.indexEnd = true;
+			}else{
+			    state.indexPage ++;
 			}
 		}
 

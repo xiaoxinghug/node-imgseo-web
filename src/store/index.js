@@ -26,7 +26,8 @@ const state = {
 	pageSize:13,
 	indexPage:1,
 	detailpage:2,
-	detailEnd:false
+	detailEnd:false,
+	indexEnd:false
 	
 }
 

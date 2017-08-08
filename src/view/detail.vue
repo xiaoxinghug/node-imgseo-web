@@ -32,17 +32,11 @@ export default {
       title : state => state.detaildata['top'].picName,
 	}),
   mounted(){
-    console.log(this.$store.state.detailstyleTagId);
-    console.log(this.$store.state.detailsceneTagId);
+    // console.log(this.$store.state.detailstyleTagId);
+    // console.log(this.$store.state.detailsceneTagId);
   },
   created(){
       this.$store.state.wateritem = [];
-      // let id = this.$route.params.id;
-      // if (id && id!=null){
-      //    this.$store.dispatch('getDetailWater');
-      //    this.$store.dispatch('getDetailData');
-      //   //  console.log(this.$store);
-      // }
   },
   asyncData ({store}) {
     return store.dispatch('getDetailData').then(store.dispatch('getDetailWater'));

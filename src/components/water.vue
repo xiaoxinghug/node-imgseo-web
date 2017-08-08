@@ -378,16 +378,13 @@ export default {
      loadMore (){
 
      },
-     reflowed (){
-      console.log(2);
-     },
      addItems () {
-        this.isBusy = true
-        setTimeout(()=>{
-            this.$store.state.wateritem =  this.$store.state.wateritem.concat(this.moreData);
-            this.isBusy = false;
-        },500)
-        
+        let self = this;
+        this.isBusy = true;
+        this.$store.dispatch('getMoreIndexWater').then(function(){
+           self.isBusy = false
+          //  console.log(1);
+        })
      }
   },
   components: {

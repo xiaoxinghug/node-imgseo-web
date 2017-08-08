@@ -3,8 +3,8 @@ import fetchJsonp from "fetch-jsonp";
 // require('es6-promise').polyfill();
 export default {
 	getIndexData({ commit, state }) {
-			state.styleTagId = parseInt(global.styleTagId) || 0;
-			state.sceneTagId = parseInt(global.sceneTagId) || 0;
+			state.styleTagId = parseInt(global.styleTagId) || 1;
+			state.sceneTagId = parseInt(global.sceneTagId) || 1;
 	return  fetch('http://m.51ping.com/wedding/ajax/m/wedpiclib/index',{
 			method:'post',
 			credentials: 'include',
@@ -83,6 +83,17 @@ export default {
 					})
 			})
 	},
+	getMoreIndexWater({commit,state}){
+	   let url = 'https://m.51ping.com/wedding/ajax/m/wedpiclib/indexsearch'+`?categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=${state.indexPage}`
+	   return fetchJsonp(url).then(function(response) {
+				// console.log(`${global.picId}`);
+				return response.json();
+			}).then(res => {
+				return commit('GET_MOREINDEXWATER', {
+						res
+					})
+			})
+	}
 	// initializeData({ commit }) {
 	// 	commit('INITIALIZE_DATA')
 	// }

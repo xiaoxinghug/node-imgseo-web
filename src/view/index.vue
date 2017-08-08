@@ -19,7 +19,6 @@ export default {
   name: 'index',
   data(){
     return {
-      // waterItems:[]
       title:"",
       moreData:[
         {
@@ -42,10 +41,7 @@ export default {
         indeximg : state => state.indexdata.banner
   }),
   created (){
-    // console.log(this.$store.state.indexdata);
-    // this.$store.dispatch('getWaterData');
-    // this.waterItems = this.$store.state.wateritem;
-    //  console.log(this.$store.state.wateritem);
+  
   },
   asyncData ({ store}) {
     return store.dispatch('getIndexData'),store.dispatch('getWaterData');

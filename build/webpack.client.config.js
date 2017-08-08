@@ -57,15 +57,7 @@ if (process.env.NODE_ENV === 'production') {
           handler: 'networkFirst'
         },
         {
-          urlPattern: /\/(top|new|show|ask|jobs)/,
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: '/item/:id',
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: '/user/:id',
+          urlPattern: '/wedphotos/:id',
           handler: 'networkFirst'
         }
       ]
