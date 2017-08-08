@@ -8,15 +8,20 @@ const co = require('co')
 const resolve = file => path.resolve(__dirname, file)
 const { createBundleRenderer } = require('vue-server-renderer')
 const cortex = require("@dp/cortex4n");
+const pigeon = require("@dp/pigeon-client");
+const cat = require("@dp/cat-client");
 // const cookieParser = require('cookie-parser');
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
 const serverInfo =
   `express/${require('express/package.json').version} ` +
   `vue-server-renderer/${require('vue-server-renderer/package.json').version}`
-co(function*(){ 
-       yield cortex.init(require('./package.json').name);
-  })
+co(function*(){
+  var appName = require('./package.json').name
+  cat.init({appName:appName})
+  yield pigeon.init({appName:appName})
+  yield cortex.init(appName);
+})
 const app = express()
 // const app = require('@dp/node-server');
 // cortex.init(app);
