@@ -2,17 +2,19 @@
     <div class="merchant">
         <h4>所属商户</h4>
         <div class="container">
-            <div class="img">
-                <img :src="data.shopPic" alt="商户">
-            </div>
-            <div class="text">
-                <h5>{{data.shopName}}</h5>
-                 <div class="shop-star"><span class="star"><div class="real-star":style="{width:data.shopPower*72/100 +'px'}"><span class="orange-star"></span></div></span><span>{{data.price}}</span>元/人</div>
-                 <div class="addresss">
-                    <span>{{data.regionName}}</span>
-                    <span style="margin-left:0.05rem;">{{data.categoryName}}</span>
-                 </div>
-            </div>
+            <a :href="data.url">
+                <div class="img">
+                    <img :src="data.shopPic" alt="商户">
+                </div>
+                <div class="text">
+                    <h5>{{data.shopName}}</h5>
+                    <div class="shop-star"><span class="star"><div class="real-star":style="{width:data.shopPower*72/100 +'px'}"><span class="orange-star"></span></div></span><span>{{data.price}}</span>元/人</div>
+                    <div class="addresss">
+                        <span>{{data.regionName}}</span>
+                        <span style="margin-left:0.05rem;">{{data.categoryName}}</span>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </template>
@@ -32,7 +34,8 @@ export default {
     }
   },
   created(){
-    //   console.log(this._props.merchant);
+      console.log('++++');
+      console.log(this._props.merchant);
     //  this.data = this._props.merchant;
   }
 }
@@ -78,6 +81,7 @@ export default {
         font-size:0.13rem;
         line-height:0.13rem;
         margin-top:0.12rem;
+        color:#000;
         span{
             display:inline-block;
             height:0.13rem;

@@ -1,9 +1,9 @@
 <template> 
    <div class="list">
     <div class="list-water"@click="goDetail(item)"v-for="item in list">
-        <a :href="`/wedphotos/${item.id}`"v-if="!shadow">
+        <a :href="`/wedphotos/${item.id}`">
             <div class="img">
-                <img v-lazy="item.picUrl"/>
+                <img :src="item.picUrl"/>
             </div>
             <div class="bottom":class="[shadow== true ? 'shadow':'']">
                     <div class="content">
@@ -40,7 +40,7 @@ export default {
      }
   },
   created(){
-    // console.log(this._props.List);
+    console.log(this._props.List);
   },
   methods:{
     goDetail(data){

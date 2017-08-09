@@ -4,7 +4,9 @@
         <div class="container">
           <div class="content":style="{width:computWidth,paddingRight:0.15+'rem'}">
                 <div class="img"v-for="item in casedata">
-                    <img :src="item.picUrl">
+                   <a :href="`/wedphotos/${item.id}`">
+                      <img :src="item.picUrl">
+                   </a>   
                 </div>
           </div>
         </div>

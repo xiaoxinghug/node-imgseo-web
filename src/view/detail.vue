@@ -3,7 +3,7 @@
     <header-component></header-component>
     <detailimg-component :detailimg="detailimgData"v-if="!!detailimgData"></detailimg-component>
     <merchant-component :merchant="merchantData"v-if="!!merchantData"></merchant-component>
-    <!--<caseComponent :case="caseData"v-if="!!caseData"></caseComponent>-->
+    <caseComponent :case="caseData"v-if="!!caseData"></caseComponent>
     <detailwaterComponent :detailwater="detailWater"v-if="!!detailWater"></detailwaterComponent>
     <footerComponent :title="title"></footerComponent>
   </div>
@@ -32,11 +32,12 @@ export default {
       title : state => state.detaildata['top'].picName || "",
 	}),
   mounted(){
-    // console.log(this.$store.state.detaildata);
+    // console.log(this.caseData);
     // console.log(this.$store.state.detailsceneTagId);
   },
   created(){
-        // console.log(this.$store.state.detaildata);
+      // console.log('++++');
+      console.log(this.caseData);
       this.$store.state.wateritem = [];
       // console.log($route.params);
   },

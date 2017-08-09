@@ -149,7 +149,7 @@ function render (req, res) {
     const renderStream = renderer.renderToStream(context)
     indexHTML.head = parseMeta(indexHTML.head, context.state);
     let newIndexhtml = indexHTML.head + indexHTML.tail;
-        newIndexhtml = parseScript(newIndexhtml);
+        // newIndexhtml = parseScript(newIndexhtml);
      co(function*(){ 
       let newHtml = yield cortex.build(newIndexhtml,{});
           // console.log(newHtml); 
