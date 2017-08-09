@@ -23,7 +23,13 @@ Vue.mixin({
 })
 
 const { app, router, store } = createApp()
-
+// console.log(location.pathname);
+if (/wedphotos\/\d/ig.test(location.pathname)){
+      let picArry = context.url.split('/');
+      let length = context.url.split('/').length;
+          // console.log(picArry[length-1]);
+          store.state.picId = picArry[length-1];
+}
 // prime the store with server-initialized state.
 // the state is determined during SSR and inlined in the page markup.
 if (window.__INITIAL_STATE__) {
