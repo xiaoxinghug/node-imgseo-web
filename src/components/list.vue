@@ -1,7 +1,7 @@
 <template> 
    <div class="list">
     <div class="list-water"@click="goDetail(item)"v-for="item in list">
-        <router-link :to="'/wedphotos/' + item.id">
+        <router-link :to="'/wedphotos/' + item.id"v-if="!shadow">
             <div class="img">
                 <img v-lazy="item.picUrl"/>
             </div>
@@ -18,7 +18,8 @@
                         </div>
                     </div>
             </div>
-        </router-link>      
+        </router-link>
+         
     </div>
    </div>
 </template>
@@ -40,7 +41,7 @@ export default {
      }
   },
   created(){
-    // console.log(this._props.List);
+    console.log(this._props.List);
   },
   methods:{
     goDetail(data){
@@ -53,7 +54,7 @@ export default {
   }
 }
 </script>
-<style scoped lang="less">
+<style lang="less">
   @import "../less/util.less";
   .shadow{
        -webkit-box-shadow: 1px 1px 1px 1px#E6E6E6; /* 老的 Firefox */

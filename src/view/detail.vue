@@ -29,13 +29,14 @@ export default {
   		merchantData: state => state.detaildata['bottom'],
   		caseData: state => state.detaildata['center'],
       detailWater: state => state.detailwater,
-      title : state => state.detaildata['top'].picName,
+      title : state => state.detaildata['top'].picName || "",
 	}),
   mounted(){
-    // console.log(this.$store.state.detailstyleTagId);
+    console.log(this.$store.state.detaildata);
     // console.log(this.$store.state.detailsceneTagId);
   },
   created(){
+        console.log(this.$store.state.detaildata);
       this.$store.state.wateritem = [];
   },
   asyncData ({store}) {

@@ -30,6 +30,31 @@ export default context => {
       if (!matchedComponents.length) {
         reject({ code: 404 })
       }
+      // console.log(context.url);
+      // console.log(global.styleTagId);
+      if (/wedphotos\/weddingphoto\/f/ig.test(context.url)){
+        if (context.url.length > 25){
+            let parameter = context.url.split('/');
+            let endindex = "";
+            let length = context.url.split('/').length;
+            let newarry = parameter[length-1].split("");
+             for (var i = 0 ; i <newarry.length ; i++){
+                  if ( newarry[i]== 'c'){
+                        endindex = i;
+                  }
+             }
+             store.state.styleTagId = parseInt(parameter[length-1].substring(1,endindex)) || "";
+             store.state.sceneTagId = parseInt(parameter[length-1].substring(endindex+1,parameter[length-1].length)) || "";
+           }    
+          }else if (/wedphotos\/\d/ig.test(context.url)){
+              let picArry = context.url.split('/');
+              let length = context.url.split('/').length;
+                  // console.log(picArry[length-1]);
+                  store.state.picId = picArry[length-1];
+        }else {
+                  store.state.styleTagId = 1;
+                  store.state.sceneTagId = 1;
+        }
       // Call fetchData hooks on components matched by the route.
       // A preFetch hook dispatches a store action and returns a Promise,
       // which is resolved when the action is complete and store state has been
@@ -49,7 +74,7 @@ export default context => {
         context.title = store.title
         context.keywords = store.keywords
         context.description = store.description
-        // console.log(store.state);
+        // console.log(context.url);
         resolve(app)
       }).catch(reject)
     }, reject)

@@ -10,7 +10,7 @@ const { createBundleRenderer } = require('vue-server-renderer')
 const cortex = require("@dp/cortex4n");
 const pigeon = require("@dp/pigeon-client");
 const cat = require("@dp/cat-client");
-// const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
 const serverInfo =
@@ -22,15 +22,9 @@ co(function*(){
   yield pigeon.init({appName:appName})
   yield cortex.init(appName);
 })
-const app = express()
-// const app = require('@dp/node-server');
-// cortex.init(app);
-const template = fs.readFileSync(resolve('./src/index.template.html'), 'utf-8')
-// global.cookies = "";
-// console.log(template);
+const app = express();
+const template = fs.readFileSync(resolve('./src/index.template.html'), 'utf-8');
 function createRenderer (bundle, options) {
-  // console.log(bundle);
-  // console.log(options);
   // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
   return createBundleRenderer(bundle, Object.assign(options, {
     template,
@@ -57,7 +51,7 @@ if (isProd) {
   // tags for any async chunks used during render, avoiding waterfall requests.
   const clientManifest = require('./dist/vue-ssr-client-manifest.json')
   renderer = createRenderer(bundle, {
-    // clientManifest
+    clientManifest
   })
 } else {
   // In development: setup the dev server with watch and hot-reload,
@@ -107,33 +101,20 @@ const parseHTML = tmpl => {
     tail: tmpl.slice(i + placeholder.length)
   }
 }
+const parseScript = lastHtml =>{
+         lastHtml = lastHtml.replace(/(<link rel="preload" href="\/dist\/manifest.js" as="script">)/,"");
+         lastHtml = lastHtml.replace(/(<link rel="preload" href="\/dist\/vendor.js" as="script">)/,"");
+         lastHtml = lastHtml.replace(/(<link rel="preload" href="\/dist\/app.js" as="script">)/,"");
+         lastHtml = lastHtml.replace(/(<script src="\/dist\/manifest.js" defer><\/script>)/,"");
+         lastHtml = lastHtml.replace(/<script src="\/dist\/vendor.js" defer><\/script>/,"");
+         lastHtml = lastHtml.replace(/<script src="\/dist\/app.js" defer><\/script>/,"");
+         return lastHtml;
+}
 function render (req, res) {
-  const s = Date.now()
+  const s = Date.now();
+  console.log(req.url);
   res.setHeader("Content-Type", "text/html")
   res.setHeader("Server", serverInfo)
-    if (/wedphotos\/weddingphoto/ig.test(req.url)){
-        if (req.url.length > 25){
-            let parameter = req.url.split('/');
-            let endindex = "";
-            let length = req.url.split('/').length;
-            let newarry = parameter[length-1].split("");
-             for (var i = 0 ; i <newarry.length ; i++){
-                  if ( newarry[i]== 'c'){
-                        endindex = i;
-                  }
-             }
-             global.styleTagId = parameter[length-1].substring(1,endindex) || "";
-             global.sceneTagId = parameter[length-1].substring(endindex+1,parameter[length-1].length) || "";
-        }    
-    }else if (/wedphotos\/\d/ig.test(req.url)){
-        let picArry = req.url.split('/');
-        let length = req.url.split('/').length;
-            // console.log(picArry[length-1]);
-            global.picId = picArry[length-1];
-  }else {
-            global.styleTagId = 1;
-            global.sceneTagId = 1;
-    }
   const handleError = err => {
     if (err.url) {
       res.redirect(err.url)
@@ -159,38 +140,21 @@ function render (req, res) {
     }
   } 
   const context = {url: req.url};
-  // const renderStream = renderer.renderToStream(context);
-  // let indexHTML = parseHTML(template);
-  // renderStream.once('data', () => {
-  //   res.write(parseMeta(indexHTML.head, context))
-  // })
   renderer.renderToString(context, (err, html) => {
     if (err) {
       return handleError(err)
     }
-    // if (context){
-
-    // }
-    // console.log(context.state);
-    //  console.log(parseHTML(html))
-     let indexHTML = parseHTML(html);
-     const renderStream = renderer.renderToStream(context)
-
-    // renderStream.once('data', () => {
-    //   res.write(parseMeta(indexHTML.head, context))
-    // })
-    // console.log(indexHTML.head);
+    
+    let indexHTML = parseHTML(html);
+    const renderStream = renderer.renderToStream(context)
     indexHTML.head = parseMeta(indexHTML.head, context.state);
     let newIndexhtml = indexHTML.head + indexHTML.tail;
-       console.log(newIndexhtml);
+        // newIndexhtml = parseScript(newIndexhtml);
      co(function*(){ 
       let newHtml = yield cortex.build(newIndexhtml,{});
-          console.log(newHtml); 
+          // console.log(newHtml); 
       res.end(newHtml)
      })
-    // res.end(newIndexhtml);
-    // console.log('----');
-    // console.log(indexHTML.head + indexHTML.tail);
     if (cacheable) {
       microCache.set(req.url, html)
     }

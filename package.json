@@ -17,7 +17,6 @@
   "dependencies": {
     "@dp/cat-client": "^1.4.10",
     "@dp/cortex4n": "^2.1.0",
-    "@dp/node-server": "^1.6.7",
     "@dp/pigeon-client": "^1.9.0-beta1",
     "@dp/url-rewrite": "^0.4.40",
     "co": "^4.6.0",
@@ -28,12 +27,7 @@
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "fetch-jsonp": "^1.1.1",
-    "firebase": "^3.7.2",
     "isomorphic-fetch": "^2.2.1",
-    "koa-router": "^7.2.1",
-    "koa-send": "^4.1.0",
-    "koa-static": "^4.0.1",
-    "koa-webpack-middleware-zm": "0.0.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "lru-cache": "^4.0.2",
@@ -42,7 +36,6 @@
     "vue-lazyload": "^1.0.6",
     "vue-router": "^2.7.0",
     "vue-server-renderer": "^2.4.1",
-    "vue-waterfall": "^1.0.6",
     "vuex": "^2.3.1",
     "vuex-router-sync": "^4.1.2"
   },
