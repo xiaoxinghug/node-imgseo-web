@@ -32,7 +32,7 @@ export default {
     }
   },
   created(){
-      console.log(this._props.merchant);
+    //   console.log(this._props.merchant);
     //  this.data = this._props.merchant;
   }
 }

@@ -24,8 +24,9 @@ const state = {
 	detailstyleTagId:"",
 	detailsceneTagId:"",
 	pageSize:16,
-	indexPage:1,
+	indexPage:2,
 	detailpage:2,
+	picId:"",
 	detailEnd:false,
 	indexEnd:false
 	

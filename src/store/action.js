@@ -43,7 +43,7 @@ export default {
 				headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 				},
-				body:`picId=${global.picId}&source=3&cityId=0` 
+				body:`picId=${state.picId}&source=3&cityId=0` 
 			}).then(function(response) {
 				// console.log(`${global.picId}`);
 				return response.json();
@@ -54,6 +54,8 @@ export default {
 			})
 	},
 	getDetailWater({commit,state}){
+		console.log(state.detailstyleTagId);
+		console.log(state.detailsceneTagId);
 		return fetch('https://m.51ping.com/wedding/ajax/m/wedpiclib/detailmorepic',{
 				method:'post',
 				credentials: 'include',

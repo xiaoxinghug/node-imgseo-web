@@ -32,15 +32,15 @@ export default {
       title : state => state.detaildata['top'].picName || "",
 	}),
   mounted(){
-    console.log(this.$store.state.detaildata);
+    // console.log(this.$store.state.detaildata);
     // console.log(this.$store.state.detailsceneTagId);
   },
   created(){
-        console.log(this.$store.state.detaildata);
+        // console.log(this.$store.state.detaildata);
       this.$store.state.wateritem = [];
   },
   asyncData ({store}) {
-    return store.dispatch('getDetailData').then(store.dispatch('getDetailWater'));
+    return store.dispatch('getDetailData').then(()=>store.dispatch('getDetailWater'));
   },
   methods:{
 

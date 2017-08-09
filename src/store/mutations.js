@@ -21,11 +21,7 @@ export default {
 		}
 	},
 	[GET_DETAILDATA](state, payload){
-					console.log('++++');
-
 		if (payload.res.code == 200){
-			console.log('++++');
-			console.log(payload.res.msg);
 			state.detaildata['top'] = payload.res.msg.picDetail;
 			state.detaildata['center'] = payload.res.msg.relatedPics;
 			state.detaildata['bottom'] = payload.res.msg.shop;
@@ -34,6 +30,7 @@ export default {
 		}
 	},
 	[GET_DETAILWATER](state, payload){
+		// console.log(payload.res);
 		if (payload.res.code == 200){
 			state.detailwater = payload.res.msg.records;
 		 }

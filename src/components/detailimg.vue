@@ -31,7 +31,7 @@ export default {
     }
   },
   created(){
-      console.log(this._props.detailimg);
+    //   console.log(this._props.detailimg);
     // this.data = this._props.detailimg;
   }
 }
