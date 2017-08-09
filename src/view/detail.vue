@@ -37,7 +37,7 @@ export default {
   },
   created(){
       // console.log('++++');
-      console.log(this.caseData);
+      // console.log(this.caseData);
       this.$store.state.wateritem = [];
       // console.log($route.params);
   },

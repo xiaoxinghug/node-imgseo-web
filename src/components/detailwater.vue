@@ -49,7 +49,7 @@ export default {
       }
 	},
   created(){
-   console.log(this._props.detailwater);
+  //  console.log(this._props.detailwater);
     this.$store.state.detailpage = 2;
   },
   mounted(){

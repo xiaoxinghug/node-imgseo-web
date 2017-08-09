@@ -22,11 +22,15 @@ export default {
 	},
 	[GET_DETAILDATA](state, payload){
 		if (payload.res.code == 200){
+			console.log(payload.res.msg);
 			state.detaildata['top'] = payload.res.msg.picDetail;
 			state.detaildata['center'] = payload.res.msg.relatedPics;
 			state.detaildata['bottom'] = payload.res.msg.shop;
 			state.detailstyleTagId = payload.res.msg.picDetail.tags[0].tagId;
 			state.detailsceneTagId = payload.res.msg.picDetail.tags[1].tagId;
+			// state.title = payload.res.msg.pagetitle;
+			// state.keywords = payload.res.msg.pagekeywords;
+			// state.description = payload.res.msg.pagedescription;
 		}
 	},
 	[GET_DETAILWATER](state, payload){

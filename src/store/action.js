@@ -1,6 +1,5 @@
 import fetch from "isomorphic-fetch";
 import fetchJsonp from "fetch-jsonp";
-// require('es6-promise').polyfill();
 export default {
 	getIndexData({ commit, state }) {
 	return  fetch('http://m.51ping.com/wedding/ajax/m/wedpiclib/index',{
@@ -9,7 +8,7 @@ export default {
 			headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           	},
-			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0` 
+			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3` 
 		}).then(function(response) {
             	return response.json();
         	}).then(res => {
@@ -28,7 +27,6 @@ export default {
           	},
 			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=10&page=1` 
 		}).then(function(response) {
-			// console.log(`${global.styleTagId}`);
             return response.json();
         }).then(res => {
 			return commit('GET_WATERDATA', {
@@ -43,7 +41,7 @@ export default {
 				headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 				},
-				body:`picId=${state.picId}&source=3&cityId=0` 
+				body:`picId=${state.picId}&source=3` 
 			}).then(function(response) {
 				// console.log(`${global.picId}`);
 				return response.json();
@@ -54,8 +52,6 @@ export default {
 			})
 	},
 	getDetailWater({commit,state}){
-		console.log(state.detailstyleTagId);
-		console.log(state.detailsceneTagId);
 		return fetch('https://m.51ping.com/wedding/ajax/m/wedpiclib/detailmorepic',{
 				method:'post',
 				credentials: 'include',

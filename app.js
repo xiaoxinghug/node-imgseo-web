@@ -10,7 +10,6 @@ const { createBundleRenderer } = require('vue-server-renderer')
 const cortex = require("@dp/cortex4n");
 const pigeon = require("@dp/pigeon-client");
 const cat = require("@dp/cat-client");
-const cookieParser = require('cookie-parser');
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
 const serverInfo =
@@ -112,7 +111,7 @@ const parseScript = lastHtml =>{
 }
 function render (req, res) {
   const s = Date.now();
-  console.log(req.url);
+  // console.log(req.url);
   res.setHeader("Content-Type", "text/html")
   res.setHeader("Server", serverInfo)
   const handleError = err => {
@@ -166,7 +165,7 @@ function render (req, res) {
 // app.use(cookieParser());
 app.get('*', isProd ? render : (req, res) => {
   // console.log(res);
-  console.log("--");
+  // console.log("--");
   // const context = {url: req.url}
   // const renderStream = renderer.renderToStream(context)
   //   renderStream.once('data', () => {

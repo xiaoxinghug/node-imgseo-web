@@ -35,7 +35,7 @@ export default {
         }
 	},
   created(){
-        console.log(this._props.case);
+        // console.log(this._props.case);
   },
   mounted(){
     // var imgcontent = document.getElementById()

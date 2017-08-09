@@ -41,7 +41,7 @@ export default {
         indeximg : state => state.indexdata.banner
   }),
   created (){
-  
+     console.log(this.indeximg);
   },
   asyncData ({ store}) {
     return store.dispatch('getIndexData'),store.dispatch('getWaterData');
