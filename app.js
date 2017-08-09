@@ -55,6 +55,7 @@ if (isProd) {
 } else {
   // In development: setup the dev server with watch and hot-reload,
   // and create a new renderer on bundle / index template update.
+  
   readyPromise = require('./build/setup-dev-server')(app, (bundle, options) => {
     renderer = createRenderer(bundle, options)
   })
@@ -138,7 +139,9 @@ function render (req, res) {
       return res.end(hit)
     }
   } 
-  const context = {url: req.url};
+  console.log(req.headers.cookie);
+  const context = {url: req.url,cookie:req.headers.cookie};
+
   renderer.renderToString(context, (err, html) => {
     if (err) {
       return handleError(err)

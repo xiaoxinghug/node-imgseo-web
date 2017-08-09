@@ -2,11 +2,12 @@ import fetch from "isomorphic-fetch";
 import fetchJsonp from "fetch-jsonp";
 export default {
 	getIndexData({ commit, state }) {
-	return  fetch('http://m.51ping.com/wedding/ajax/m/wedpiclib/index',{
+	return  fetch('https://m.51ping.com/wedding/ajax/m/wedpiclib/index',{
 			method:'post',
 			credentials: 'include',
 			headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
+			'cookie': state.cookie
           	},
 			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3` 
 		}).then(function(response) {

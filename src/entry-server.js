@@ -11,7 +11,7 @@ export default context => {
   return new Promise((resolve, reject) => {
     const s = isDev && Date.now()
     const { app, router, store } = createApp()
-
+    store.state.cookie = context.cookie;
     const { url } = context
     const fullPath = router.resolve(url).route.fullPath
     // console.log(context.url);
@@ -74,6 +74,8 @@ export default context => {
         context.title = store.title
         context.keywords = store.keywords
         context.description = store.description
+       
+
         // console.log(context.url);
         resolve(app)
       }).catch(reject)

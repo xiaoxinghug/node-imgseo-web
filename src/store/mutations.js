@@ -22,7 +22,6 @@ export default {
 	},
 	[GET_DETAILDATA](state, payload){
 		if (payload.res.code == 200){
-			console.log(payload.res.msg);
 			state.detaildata['top'] = payload.res.msg.picDetail;
 			state.detaildata['center'] = payload.res.msg.relatedPics;
 			state.detaildata['bottom'] = payload.res.msg.shop;
