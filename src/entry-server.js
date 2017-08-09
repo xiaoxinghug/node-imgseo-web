@@ -14,8 +14,6 @@ export default context => {
     store.state.cookie = context.cookie;
     const { url } = context
     const fullPath = router.resolve(url).route.fullPath
-    // console.log(context.url);
-    // console.log(fullPath);
     if (fullPath !== url) {
       reject({ url: fullPath })
     }
@@ -30,8 +28,7 @@ export default context => {
       if (!matchedComponents.length) {
         reject({ code: 404 })
       }
-      // console.log(context.url);
-      // console.log(global.styleTagId);
+      
       if (/wedphotos\/weddingphoto\/f/ig.test(context.url)){
         if (context.url.length > 25){
             let parameter = context.url.split('/');
