@@ -1,7 +1,7 @@
 <template> 
    <div class="list">
     <div class="list-water"@click="goDetail(item)"v-for="item in list">
-        <router-link :to="'/wedphotos/' + item.id"v-if="!shadow">
+        <a :href="`/wedphotos/${item.Id}`"v-if="!shadow">
             <div class="img">
                 <img v-lazy="item.picUrl"/>
             </div>
@@ -18,8 +18,7 @@
                         </div>
                     </div>
             </div>
-        </router-link>
-         
+        </a>   
     </div>
    </div>
 </template>
