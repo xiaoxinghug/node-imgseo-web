@@ -27,9 +27,9 @@ export default {
 			state.detaildata['bottom'] = payload.res.msg.shop;
 			state.detailstyleTagId = payload.res.msg.picDetail.tags[0].tagId;
 			state.detailsceneTagId = payload.res.msg.picDetail.tags[1].tagId;
-			// state.title = payload.res.msg.pagetitle;
-			// state.keywords = payload.res.msg.pagekeywords;
-			// state.description = payload.res.msg.pagedescription;
+			state.title = payload.res.msg.pagetitle;
+			state.keywords = payload.res.msg.pagekeywords;
+			state.description = payload.res.msg.pagedescription;
 		}
 	},
 	[GET_DETAILWATER](state, payload){
