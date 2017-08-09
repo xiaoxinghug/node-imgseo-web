@@ -25,8 +25,8 @@ Vue.mixin({
 const { app, router, store } = createApp()
 // console.log(location.pathname);
 if (/wedphotos\/\d/ig.test(location.pathname)){
-      let picArry = context.url.split('/');
-      let length = context.url.split('/').length;
+      let picArry = location.pathname.split('/');
+      let length = location.pathname.split('/').length;
           // console.log(picArry[length-1]);
           store.state.picId = picArry[length-1];
 }
