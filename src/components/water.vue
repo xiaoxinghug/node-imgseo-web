@@ -6,7 +6,9 @@
          <div class="right">
               <List :List="ritems"></List>
          </div>
-      <div class="more"v-if="!isBusy"@click="addItems()">查看更多<span class="loadarrow"></span></div>
+      <div class="more"v-if="!isBusy"@click="addItems()">
+            <div>查看更多<span class="loadarrow"></span></div>
+      </div>
       <div class="more"v-if="isBusy">加载中...</div>
     </div>
 </template>

@@ -64,7 +64,6 @@ export default {
     //   width:50%;
   }
     .list-water{
-        height:100%;
         position: relative;
         margin:5px;
         .img{
