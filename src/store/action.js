@@ -7,7 +7,7 @@ export default {
 			credentials: 'include',
 			headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-			'cookie': state.cookie
+			'Cookie': state.cookie
           	},
 			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3` 
 		}).then(function(response) {
@@ -24,7 +24,8 @@ export default {
 			method:'post',
 			credentials: 'include',
 			headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
+			 'Cookie': state.cookie
           	},
 			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=10&page=1` 
 		}).then(function(response) {
