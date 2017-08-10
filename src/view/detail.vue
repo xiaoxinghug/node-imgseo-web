@@ -32,14 +32,10 @@ export default {
       title : state => state.detaildata['top'].picName || "",
 	}),
   mounted(){
-    // console.log(this.caseData);
-    // console.log(this.$store.state.detailsceneTagId);
+   
   },
   created(){
-      // console.log('++++');
-      // console.log(this.caseData);
       this.$store.state.wateritem = [];
-      // console.log($route.params);
   },
   asyncData ({store,route: { params: { id }}}) {
     return store.dispatch('getDetailData').then(()=>store.dispatch('getDetailWater'));

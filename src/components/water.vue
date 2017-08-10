@@ -6,7 +6,7 @@
          <div class="right">
               <List :List="ritems"></List>
          </div>
-      <div class="more"v-if="!isBusy"@click="addItems()">
+      <div class="more"v-if="!isBusy && !this.$store.state.indexEnd"@click="addItems()">
             <div style="margin:0px 0.05rem;background-color:#fff;">查看更多<span class="loadarrow"></span></div>
       </div>
       <div class="more"v-if="isBusy">加载中...</div>

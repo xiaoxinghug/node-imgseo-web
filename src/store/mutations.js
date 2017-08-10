@@ -10,6 +10,9 @@ export default {
 	[GET_WATERDATA](state, payload) {
 		if (payload.res.code == 200){
 				state.wateritem = payload.res.msg.records;
+				if (payload.res.msg.records.length < state.pageSize){
+					state.indexEnd = true;
+			}
 		 }
 	},
 	[GET_INDEXDATA](state, payload){
@@ -33,9 +36,11 @@ export default {
 		}
 	},
 	[GET_DETAILWATER](state, payload){
-		// console.log(payload.res);
 		if (payload.res.code == 200){
 			state.detailwater = payload.res.msg.records;
+			if (payload.res.msg.records.length < state.pageSize){
+				state.detailEnd = true;
+			}
 		 }
 	},
 	[GET_MOREDETAILWATER](state, payload){
