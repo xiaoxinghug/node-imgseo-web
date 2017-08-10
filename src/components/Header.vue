@@ -36,7 +36,7 @@ export default {
     },
     look(){
      var UR = require('@dp/url-rewrite'); 
-     var urllink = 'https://m.dianping.com/app/app-m-wedding-product-peon/index.html';
+     var urllink = this.$store.state.indexdata.banner.link;
          location.href = UR.web({ 'url': urllink }); 
     }
   }

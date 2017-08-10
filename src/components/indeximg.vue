@@ -1,10 +1,8 @@
 <template>
-    <a :href="objBanner.link">
         <div class="home-img">
             <img :src="objBanner.pic" alt="">
-            <p>最新欧美大气婚纱照</p>
+            <p>最新婚纱照</p>
         </div>
-    </a> 
 </template>
 
 <script>

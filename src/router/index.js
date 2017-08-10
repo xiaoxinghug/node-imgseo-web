@@ -13,11 +13,11 @@ export function createRouter (){
             name: 'Index',
             component: Index
           },
-          {
-            path: '/',
-            name: 'Index',
-            component: Index
-          },
+          // {
+          //   path: '/',
+          //   name: 'Index',
+          //   component: Index
+          // },
           {
             path: '/wedphotos/weddingphoto/',
             name: 'Index',

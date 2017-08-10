@@ -139,7 +139,6 @@ function render (req, res) {
       return res.end(hit)
     }
   } 
-  console.log(req.headers.cookie);
   const context = {url: req.url,cookie:req.headers.cookie};
 
   renderer.renderToString(context, (err, html) => {

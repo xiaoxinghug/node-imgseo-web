@@ -34,8 +34,8 @@ export default {
     }
   },
   created(){
-      console.log('++++');
-      console.log(this._props.merchant);
+    //   console.log('++++');
+    //   console.log(this._props.merchant);
     //  this.data = this._props.merchant;
   }
 }
@@ -76,6 +76,7 @@ export default {
         display:block;
         border:none;
         max-width:100%;
+        height:100%;
     }
     .shop-star{
         font-size:0.13rem;

@@ -4,7 +4,7 @@
             <img :src="data.picUrl" alt="">
        </div>
        <div class="bottom">
-            <h5>{{data.picName}}</h5>
+            <h1>{{data.picName}}</h1>
             <div class="tip">
                 <span v-for="item in data.tags">{{item.tagName}}</span>
                 
@@ -55,7 +55,7 @@ export default {
         position:relative;
         padding:0.15rem;
         background-color:#fff;
-        h5{
+        h1{
             font-size:0.16rem;
         }
     }
