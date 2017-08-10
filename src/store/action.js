@@ -9,7 +9,7 @@ export default {
             'Content-Type': 'application/x-www-form-urlencoded',
 			'Cookie': state.cookie
           	},
-			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&isSEO=${true}` 
+			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&isSEO=true` 
 		}).then(function(response) {
             	return response.json();
         	}).then(res => {
@@ -27,7 +27,7 @@ export default {
             'Content-Type': 'application/x-www-form-urlencoded',
 			 'Cookie': state.cookie
           	},
-			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=10&page=1&isSEO=${true}` 
+			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=10&page=1&isSEO=true` 
 		}).then(function(response) {
             return response.json();
         }).then(res => {
@@ -60,7 +60,7 @@ export default {
 				headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 				},
-				body:`categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=1&isSEO=${true}` 
+				body:`categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=1&isSEO=true` 
 			}).then(function(response) {
 				// console.log(`${global.picId}`);
 				return response.json();
@@ -71,7 +71,7 @@ export default {
 			})
 	},
 	getMoreDetailWater({commit,state}){
-		let url = 'https://m.51ping.com/wedding/ajax/m/wedpiclib/detailmorepic'+`?categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=${state.detailpage}&isSEO=${true}`
+		let url = 'https://m.51ping.com/wedding/ajax/m/wedpiclib/detailmorepic'+`?categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=${state.detailpage}&isSEO=true`
 		return fetchJsonp(url).then(function(response) {
 				// console.log(`${global.picId}`);
 				return response.json();
@@ -82,7 +82,7 @@ export default {
 			})
 	},
 	getMoreIndexWater({commit,state}){
-	   let url = 'https://m.51ping.com/wedding/ajax/m/wedpiclib/indexsearch'+`?categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=${state.indexPage}&isSEO=${true}`
+	   let url = 'https://m.51ping.com/wedding/ajax/m/wedpiclib/indexsearch'+`?categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=${state.indexPage}&isSEO=true`
 	   return fetchJsonp(url).then(function(response) {
 				// console.log(`${global.picId}`);
 				return response.json();
