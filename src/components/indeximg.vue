@@ -1,7 +1,7 @@
 <template>
         <div class="home-img">
             <img :src="objBanner.pic" alt="">
-            <p>最新婚纱照</p>
+            <p>{{text}}</p>
         </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: '',
   data () {
     return {
-      msg: ''
+      text: ''
     }
   },
   props:['indeximg'],
