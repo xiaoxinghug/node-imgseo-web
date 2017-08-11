@@ -1,11 +1,13 @@
 <template>
     <div class="water"v-if="items && items.length>0">
+      <div class="content">
          <div class="left">
               <List :List="items"></List>
          </div>
          <div class="right">
               <List :List="ritems"></List>
          </div>
+      </div>
       <div class="more"v-if="!isBusy && !this.$store.state.indexEnd"@click="addItems()">
             <div style="margin:0px 0.05rem;background-color:#fff;">查看更多<span class="loadarrow"></span></div>
       </div>
@@ -77,11 +79,15 @@ export default {
  .water{
      float:left;
      margin-top:0.07rem;
-     padding:0px 0.07rem;
-     .left,.right{
-       width:50%;
-       float:left;
+     width:100%;
+     .content{
+        padding:0px 0.07rem;
+        .left,.right{
+          width:50%;
+          float:left;
+        }
      }
+     
  }
  .more{
    height:0.45rem;
