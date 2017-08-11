@@ -53,13 +53,8 @@ export default {
     }
   },
   mounted(){
-    // console.log();
-    // console.log();
-    console.log(this.$store.state.styleTagId);
     this.activeFn(this.fenglist,this.$store.state.styleTagId);
     this.activeStyle(this.stylelist,this.$store.state.sceneTagId);
-    // console.log(this.styleIndex);
-        console.log(this.$store.state.sceneTagId);
 
   },
   methods:{
@@ -82,7 +77,6 @@ export default {
     showList(index){
         if (this.showselect){
             if (index != this.showIndex){
-                //  this.list = this.data[index].list;
                  this.showIndex = index;
                  return;
             }
@@ -92,24 +86,12 @@ export default {
         }else {
             this.showIndex = index;
         }
-        // this.list = this.data[index].list;
         this.showselect = !this.showselect;
     },
     styleListclick(data,index){
-        // console.log(data.tagId);
-        // console.log(this.$store.state.styleTagId);
-        // this.$store.state.styleTagId =  data.tagId;
-        if (!!document){
-            // location.href = location.host+`/wedphotos/weddingphoto/f${this.$store.state.styleTagId}c${data.tagId}`;
-        }else{
-            // this.$router.push(`f${this.$store.state.styleTagId}c${data.tagId}`);
-        }
+        
     },
     fengListclick(data,index){
-        console.log(data.tagId);
-        console.log(this.$store.state.sceneTagId);
-        // this.$store.state.sceneTagId =  data.tagId;
-    //   this.$router.push(`f${data.tagId}c${this.$store.state.sceneTagId}`);
     }
   }
 }
