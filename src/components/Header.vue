@@ -20,7 +20,6 @@
   </transition>  
 </template>
 <script>
-// import UR from '@dp/url-rewrite';
 export default {
   name: '',
   data () {
@@ -35,7 +34,7 @@ export default {
         this.isShow = !this.isShow;
     },
     look(){
-     var urllink = this.$store.state.indexdata.banner.link;
+     var urllink = this.$store.state.indexdata.banner.link || this.$store.state.detaildata.banner.link;
          location.href = urllink; 
     }
   }

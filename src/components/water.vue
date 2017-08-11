@@ -1,6 +1,6 @@
 <template>
     <div class="water"v-if="items && items.length>0">
-      <div class="content">
+      <div class="container">
          <div class="left">
               <List :List="items"></List>
          </div>
@@ -80,7 +80,7 @@ export default {
      float:left;
      margin-top:0.07rem;
      width:100%;
-     .content{
+     .container{
         padding:0px 0.07rem;
         .left,.right{
           width:50%;

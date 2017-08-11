@@ -28,6 +28,7 @@ export default {
 			state.detaildata['top'] = payload.res.msg.picDetail;
 			state.detaildata['center'] = payload.res.msg.relatedPics;
 			state.detaildata['bottom'] = payload.res.msg.shop;
+			state.detaildata['banner'] = payload.res.msg.banner;
 			state.title = payload.res.msg.pagetitle;
 			state.keywords = payload.res.msg.pagekeywords;
 			state.description = payload.res.msg.pagedescription;

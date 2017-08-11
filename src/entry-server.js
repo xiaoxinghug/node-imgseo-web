@@ -49,8 +49,8 @@ export default context => {
                   // console.log(picArry[length-1]);
                   store.state.picId = picArry[length-1];
         }else {
-                  store.state.styleTagId = 1;
-                  store.state.sceneTagId = 1;
+                  store.state.styleTagId = 0;
+                  store.state.sceneTagId = 0;
         }
       // Call fetchData hooks on components matched by the route.
       // A preFetch hook dispatches a store action and returns a Promise,
