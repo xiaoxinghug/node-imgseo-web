@@ -2,7 +2,7 @@ import fetch from "isomorphic-fetch";
 import fetchJsonp from "fetch-jsonp";
 export default {
 	getIndexData({ commit, state }) {
-	return  fetch('/wedding/ajax/m/wedpiclib/index',{
+	return  fetch('https://m.dianping.com/wedding/ajax/m/wedpiclib/index',{
 			method:'post',
 			credentials: 'include',
 			headers: {
@@ -20,7 +20,7 @@ export default {
 	},
 	
 	getWaterData({ commit, state }) {
-	 return fetch('/wedding/ajax/m/wedpiclib/indexsearch',{
+	 return fetch('https://m.dianping.com/wedding/ajax/m/wedpiclib/indexsearch',{
 			method:'post',
 			credentials: 'include',
 			headers: {
@@ -37,7 +37,7 @@ export default {
 		})
 	},
 	getDetailData({commit,state}){
-	    	return fetch('/wedding/ajax/m/wedpiclib/detail',{
+	    	return fetch('https://m.dianping.com/wedding/ajax/m/wedpiclib/detail',{
 				method:'post',
 				credentials: 'include',
 				headers: {
@@ -54,7 +54,7 @@ export default {
 			})
 	},
 	getDetailWater({commit,state}){
-		return fetch('/wedding/ajax/m/wedpiclib/detailmorepic',{
+		return fetch('https://m.dianping.com/wedding/ajax/m/wedpiclib/detailmorepic',{
 				method:'post',
 				credentials: 'include',
 				headers: {
@@ -71,7 +71,7 @@ export default {
 			})
 	},
 	getMoreDetailWater({commit,state}){
-		let url = '/wedding/ajax/m/wedpiclib/detailmorepic'+`?categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=${state.detailpage}&isSEO=true`
+		let url = 'https://m.dianping.com/wedding/ajax/m/wedpiclib/detailmorepic'+`?categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=${state.detailpage}&isSEO=true`
 		return fetchJsonp(url).then(function(response) {
 				// console.log(`${global.picId}`);
 				return response.json();
@@ -82,7 +82,7 @@ export default {
 			})
 	},
 	getMoreIndexWater({commit,state}){
-	   let url = '/wedding/ajax/m/wedpiclib/indexsearch'+`?categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=${state.indexPage}&isSEO=true`
+	   let url = 'https://m.dianping.com/wedding/ajax/m/wedpiclib/indexsearch'+`?categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=${state.indexPage}&isSEO=true`
 	   return fetchJsonp(url).then(function(response) {
 				// console.log(`${global.picId}`);
 				return response.json();
