@@ -3,7 +3,7 @@
     <div class="list-water"@click="goDetail(item)"v-for="item in list">
         <a :href="`/wedphotos/${item.id}`">
             <div class="img">
-                <img :src="item.picUrl"/:alt="">
+                <img :src="item.picUrl":alt="item.picName"/>
             </div>
             <div class="bottom":class="[shadow== true ? 'shadow':'']">
                     <div class="content">

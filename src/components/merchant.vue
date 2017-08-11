@@ -4,7 +4,7 @@
         <div class="container">
             <a :href="data.url">
                 <div class="img">
-                    <img :src="data.shopPic" alt="商户">
+                    <img :src="data.shopPic" :alt="data.shopName">
                 </div>
                 <div class="text">
                     <h5>{{data.shopName}}</h5>

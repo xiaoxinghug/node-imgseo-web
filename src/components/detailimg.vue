@@ -1,7 +1,7 @@
 <template>
     <div class="detail-img">
        <div class="img">
-            <img :src="data.picUrl" alt="">
+            <img :src="data.picUrl" :alt="data.picName">
        </div>
        <div class="bottom">
             <h1>{{data.picName}}</h1>

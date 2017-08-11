@@ -5,7 +5,7 @@
           <div class="content":style="{width:computWidth,paddingRight:0.15+'rem'}">
                 <div class="img"v-for="item in casedata">
                    <a :href="`/wedphotos/${item.id}`">
-                      <img :src="item.picUrl">
+                      <img :src="item.picUrl":alt="item.picName">
                    </a>   
                 </div>
           </div>
