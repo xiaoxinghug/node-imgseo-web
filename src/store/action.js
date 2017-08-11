@@ -41,7 +41,8 @@ export default {
 				method:'post',
 				credentials: 'include',
 				headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
+				'Content-Type': 'application/x-www-form-urlencoded',
+				'Cookie': state.cookie
 				},
 				body:`picId=${state.picId}&source=3&isSEO=true` 
 			}).then(function(response) {
@@ -57,7 +58,8 @@ export default {
 				method:'post',
 				credentials: 'include',
 				headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
+				'Content-Type': 'application/x-www-form-urlencoded',
+				'Cookie': state.cookie
 				},
 				body:`categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&pagesize=${state.pageSize}&page=1&isSEO=true` 
 			}).then(function(response) {
