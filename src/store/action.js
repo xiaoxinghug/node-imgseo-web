@@ -43,9 +43,8 @@ export default {
 				headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 				},
-				body:`picId=${state.picId}&source=3&isSEO=${true}` 
+				body:`picId=${state.picId}&source=3&isSEO=true` 
 			}).then(function(response) {
-				// console.log(`${global.picId}`);
 				return response.json();
 			}).then(res => {
 				return commit('GET_DETAILDATA', {
@@ -62,7 +61,6 @@ export default {
 				},
 				body:`categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&pagesize=${state.pageSize}&page=1&isSEO=true` 
 			}).then(function(response) {
-				// console.log(`${global.picId}`);
 				return response.json();
 			}).then(res => {
 				return commit('GET_DETAILWATER', {
