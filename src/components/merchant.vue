@@ -113,7 +113,7 @@ export default {
     .img{
         height:0.7rem;
         width:0.7rem;
-        background-color:red;
+        // background-color:red;
         float:left;
     }
 }

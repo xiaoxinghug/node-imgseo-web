@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <h5>结婚<span class="arrow"></span>婚纱照大全<span class="arrow"v-if="!!titles"></span><span>{{titles}}</span></h5>
+        <h5><span @click="look()">结婚</span><span class="arrow"></span>婚纱照大全<span class="arrow"v-if="!!titles"></span><span>{{titles}}</span></h5>
         <div class="center">
           <div class="footer-list">
                 <a href="//m.dianping.com/nmy/myinfo">我的</a>
@@ -33,6 +33,11 @@ export default {
       titles:function (){
           return this._props.title;
       }
+  },
+  methods:{
+      look(){
+       location.href = "https://evt.dianping.com/synthesislink/10131.html?url=dianping%3A%2F%2Fweb%3Furl%3Dhttps%253A%252F%252Fm.dianping.com%252Fapp%252Fapp-m-wedding-product-peon%252Findex.html&local=https%3A%2F%2Fm.dianping.com%2Fapp%2Fapp-m-wedding-product-peon%2Findex.html"; 
+    }
   }
 }
 </script>

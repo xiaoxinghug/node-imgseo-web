@@ -1,8 +1,10 @@
 <template>
+    <a :href="objBanner.link">
         <div class="home-img">
             <img :src="objBanner.pic" alt="">
             <p>{{text}}</p>
         </div>
+    </a> 
 </template>
 
 <script>

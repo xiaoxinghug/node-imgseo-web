@@ -151,6 +151,7 @@ function render (req, res) {
     indexHTML.head = parseMeta(indexHTML.head, context.state);
     let newIndexhtml = indexHTML.head + indexHTML.tail;
         newIndexhtml = parseScript(newIndexhtml);
+        console.log(newIndexhtml);
      co(function*(){ 
       let newHtml = yield cortex.build(newIndexhtml,{});
           // console.log(newHtml); 
