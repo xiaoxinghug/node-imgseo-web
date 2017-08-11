@@ -36,11 +36,14 @@ export default {
 		}
 	},
 	[GET_DETAILWATER](state, payload){
+		// console.log(payload.res);
 		if (payload.res.code == 200){
 			state.detailwater = payload.res.msg.records;
 			if (payload.res.msg.records.length < state.pageSize){
 				state.detailEnd = true;
 			}
+		 }else{
+			 state.detailEnd = true;
 		 }
 	},
 	[GET_MOREDETAILWATER](state, payload){

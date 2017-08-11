@@ -27,7 +27,7 @@ export default {
             'Content-Type': 'application/x-www-form-urlencoded',
 			 'Cookie': state.cookie
           	},
-			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=10&page=1&isSEO=true` 
+			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&cityId=0&pagesize=${state.pageSize}&page=1&isSEO=true` 
 		}).then(function(response) {
             return response.json();
         }).then(res => {

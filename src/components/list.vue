@@ -3,7 +3,7 @@
     <div class="list-water"@click="goDetail(item)"v-for="item in list">
         <a :href="`/wedphotos/${item.id}`">
             <div class="img">
-                <img :src="item.picUrl"/>
+                <img :src="item.picUrl"/:alt="">
             </div>
             <div class="bottom":class="[shadow== true ? 'shadow':'']">
                     <div class="content">
@@ -40,7 +40,7 @@ export default {
      }
   },
   created(){
-    // console.log(this._props.List);
+    console.log(this._props.List);
   },
   methods:{
     goDetail(data){
