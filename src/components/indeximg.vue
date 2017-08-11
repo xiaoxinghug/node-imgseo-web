@@ -1,6 +1,6 @@
 <template>
         <div class="home-img">
-            <img src="../assets/homeimg.png" alt="">
+            <img src="//p0.meituan.net/dpnewvc/22e47a87c331a4d13df8ecc2721931ab199142.png" alt="">
             <p>{{text}}</p>
         </div>
 </template>
