@@ -20,6 +20,7 @@
   </transition>  
 </template>
 <script>
+// import UR from '@dp/url-rewrite';
 export default {
   name: '',
   data () {
@@ -34,7 +35,7 @@ export default {
         this.isShow = !this.isShow;
     },
     look(){
-     var urllink = this.$store.state.indexdata.banner.link || this.$store.state.detaildata.banner.link;
+     var urllink = "https://evt.dianping.com/synthesislink/10131.html?url=dianping%3A%2F%2Fweb%3Furl%3Dhttps%253A%252F%252Fm.dianping.com%252Fapp%252Fapp-m-wedding-product-peon%252Findex.html&local=https%3A%2F%2Fm.dianping.com%2Fapp%2Fapp-m-wedding-product-peon%2Findex.html";
          location.href = urllink; 
     }
   }
