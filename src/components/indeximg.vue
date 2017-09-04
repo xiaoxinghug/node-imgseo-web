@@ -31,7 +31,7 @@ export default {
     text-align:center;
     position:relative;
     width:100%;
-    min-height:100px;
+    // min-height:100px;
     p{
         position:absolute;
         width:100%;

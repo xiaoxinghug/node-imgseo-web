@@ -73,7 +73,6 @@ export default {
 	getMoreDetailWater({commit,state}){
 		let url = 'https://m.dianping.com/wedding/ajax/m/wedpiclib/detailmorepic'+`?categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&pagesize=${state.pageSize}&page=${state.detailpage}&isSEO=true`
 		return fetchJsonp(url).then(function(response) {
-				// console.log(`${global.picId}`);
 				return response.json();
 			}).then(res => {
 				return commit('GET_MOREDETAILWATER', {
@@ -84,7 +83,6 @@ export default {
 	getMoreIndexWater({commit,state}){
 	   let url = 'https://m.dianping.com/wedding/ajax/m/wedpiclib/indexsearch'+`?categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&pagesize=${state.pageSize}&page=${state.indexPage}&isSEO=true`
 	   return fetchJsonp(url).then(function(response) {
-				// console.log(`${global.picId}`);
 				return response.json();
 			}).then(res => {
 				return commit('GET_MOREINDEXWATER', {
