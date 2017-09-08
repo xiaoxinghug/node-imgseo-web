@@ -30,7 +30,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      time: `copyright @${new Date().getFullYear()}dianping.com`
+      time: `copyright @${new Date().getFullYear()}xxxx.com`
     }
   },
   props:['title'],
