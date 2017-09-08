@@ -3,13 +3,18 @@
         <h5><span @click="look()">结婚</span><span class="arrow"></span>婚纱照大全<span class="arrow"v-if="!!titles"></span><span>{{titles}}</span></h5>
         <div class="center">
           <div class="footer-list">
-                <a href="//m.dianping.com/nmy/myinfo">我的</a>
+                <!--<a href="//m.dianping.com/nmy/myinfo">我的</a>
                 <a href="">最近浏览</a>
                 <a href="//evt.dianping.com/synthesislink/6513.html">添加商户</a>
-                <a href="//evt.dianping.com/synthesislink/10120.html">意见反馈</a>
+                <a href="//evt.dianping.com/synthesislink/10120.html">意见反馈</a>-->
+                <a href="">我的</a>
+                <a href="">最近浏览</a>
+                <a href="">添加商户</a>
+                <a href="">意见反馈</a>
           </div>
           <div style="width:60%;margin:0 auto"class="footer-list">
-            <a href="//www.dianping.com">电脑版</a>
+            <!--<a href="//www.dianping.com">电脑版</a>-->
+            <a href="">电脑版</a>
             <a href="">标准版</a>
             <a href="javascript:void(0)">客户端</a>
           </div>

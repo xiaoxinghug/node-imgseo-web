@@ -7,8 +7,8 @@
                 <div class="center">
                     <img src="../assets/weddinglogo.png" alt="大众点评结婚logo">
                     <div class="font">
-                        <h5>大众点评结婚频道</h5>
-                        <p>国内最大的结婚一站式服务平台</p>
+                        <!--<h5>大众点评结婚频道</h5>
+                        <p>国内最大的结婚一站式服务平台</p>-->
                     </div>
                 </div>
             </div>
