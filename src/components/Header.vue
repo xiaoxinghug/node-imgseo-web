@@ -7,10 +7,8 @@
                 <div class="center">
                     <img src="../assets/weddinglogo.png" alt="大众点评结婚logo">
                     <div class="font">
-                        <!--<h5>大众点评结婚频道</h5>
-                        <p>国内最大的结婚一站式服务平台</p>-->
-                        <h5>hunshazhao</h5>
-                        <p>国内最大的一站式服务平台</p>
+                        <h5>大众点评结婚频道</h5>
+                        <p>国内最大的结婚一站式服务平台</p>
                     </div>
                 </div>
             </div>
@@ -53,7 +51,6 @@ export default {
   padding:0.1rem 0px;
   position:fixed;
   z-index:1;
-//   float:left;
   h5{
       font-size:0.18rem;
       font-weight:normal;
@@ -63,7 +60,6 @@ export default {
       opacity:0.5;
       letter-spacing:0;
       padding-top:0.08rem;
-    //   line-height:0.25rem;
   }
   .btn{
     background: #FF66A1;
