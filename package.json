@@ -18,7 +18,7 @@
   "dependencies": {
     "@dp/cat-client": "^1.4.10",
     "@dp/cortex4n": "^2.1.0",
-    "@dp/pigeon-client": "^1.9.0-beta1",
+    "@dp/pigeon-client": "^1.9.2",
     "@dp/url-rewrite": "^0.4.40",
     "co": "^4.6.0",
     "compression": "^1.6.2",
