@@ -1,15 +1,27 @@
 import fetch from "isomorphic-fetch";
 import fetchJsonp from "fetch-jsonp";
+import url from '../lib/url.js';
+const categoryId = 1631;
+const isSEO = 'true';
+const source = 3;
+const contentType = 'application/x-www-form-urlencoded'
 export default {
 	getIndexData({ commit, state }) {
-	return  fetch('https://m.dianping.com/wedding/ajax/m/wedpiclib/index',{
+		let params = [
+			'categoryId=' + categoryId,
+			'styleTagId=' + state.styleTagId,
+			'sceneTagId=' + state.sceneTagId,
+			'source=' + source,
+			'isSEO=' + isSEO
+		].join("&");
+	return  fetch(`${url}/index`,{
 			method:'post',
 			credentials: 'include',
 			headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': contentType,
 			'Cookie': state.cookie
           	},
-			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&isSEO=true` 
+			body:params 
 		}).then(function(response) {
             	return response.json();
         	}).then(res => {
@@ -20,14 +32,23 @@ export default {
 	},
 	
 	getWaterData({ commit, state }) {
-	 return fetch('https://m.dianping.com/wedding/ajax/m/wedpiclib/indexsearch',{
+		let params = [
+			'categoryId=' + categoryId,
+			'styleTagId=' + state.styleTagId,
+			'sceneTagId=' + state.sceneTagId,
+			'source=' + source,
+			'isSEO=' + isSEO,
+			'pagesize='+ state.pageSize,
+			'page='+1
+		].join("&");
+	 return fetch(`${url}/indexsearch`,{
 			method:'post',
 			credentials: 'include',
 			headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': contentType,
 			 'Cookie': state.cookie
           	},
-			body:`categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&pagesize=${state.pageSize}&page=1&isSEO=true` 
+			body: params
 		}).then(function(response) {
             return response.json();
         }).then(res => {
@@ -37,14 +58,14 @@ export default {
 		})
 	},
 	getDetailData({commit,state}){
-	    	return fetch('https://m.dianping.com/wedding/ajax/m/wedpiclib/detail',{
+	    	return fetch(`${url}/detail`,{
 				method:'post',
 				credentials: 'include',
 				headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
+				'Content-Type': contentType,
 				'Cookie': state.cookie
 				},
-				body:`picId=${state.picId}&source=3&isSEO=true` 
+				body:`picId=${state.picId}&source=${source}&isSEO=${isSEO}` 
 			}).then(function(response) {
 				return response.json();
 			}).then(res => {
@@ -54,14 +75,23 @@ export default {
 			})
 	},
 	getDetailWater({commit,state}){
-		return fetch('https://m.dianping.com/wedding/ajax/m/wedpiclib/detailmorepic',{
+		let params = [
+			'categoryId=' + categoryId,
+			'styleTagId=' + state.detailstyleTagId,
+			'sceneTagId=' + state.detailsceneTagId,
+			'source=' + source,
+			'isSEO=' + isSEO,
+			'pagesize='+ state.pageSize,
+			'page='+1
+		].join("&");
+		return fetch(`${url}/detailmorepic`,{
 				method:'post',
 				credentials: 'include',
 				headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
+				'Content-Type': contentType,
 				'Cookie': state.cookie
 				},
-				body:`categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&pagesize=${state.pageSize}&page=1&isSEO=true` 
+				body:params
 			}).then(function(response) {
 				return response.json();
 			}).then(res => {
@@ -71,7 +101,16 @@ export default {
 			})
 	},
 	getMoreDetailWater({commit,state}){
-		let url = 'https://m.dianping.com/wedding/ajax/m/wedpiclib/detailmorepic'+`?categoryId=1631&styleTagId=${state.detailstyleTagId}&sceneTagId=${state.detailsceneTagId}&source=3&pagesize=${state.pageSize}&page=${state.detailpage}&isSEO=true`
+		let params = [
+			'categoryId=' + categoryId,
+			'styleTagId=' + state.detailstyleTagId,
+			'sceneTagId=' + state.detailsceneTagId,
+			'source=' + source,
+			'isSEO=' + isSEO,
+			'pagesize='+ state.pageSize,
+			'page='+state.detailpage
+		].join("&");
+		let url = `${url}/detailmorepic`+params
 		return fetchJsonp(url).then(function(response) {
 				return response.json();
 			}).then(res => {
@@ -81,7 +120,16 @@ export default {
 			})
 	},
 	getMoreIndexWater({commit,state}){
-	   let url = 'https://m.dianping.com/wedding/ajax/m/wedpiclib/indexsearch'+`?categoryId=1631&styleTagId=${state.styleTagId}&sceneTagId=${state.sceneTagId}&source=3&pagesize=${state.pageSize}&page=${state.indexPage}&isSEO=true`
+		let params = [
+			'categoryId=' + categoryId,
+			'styleTagId=' + state.styleTagId,
+			'sceneTagId=' + state.sceneTagId,
+			'source=' + source,
+			'isSEO=' + isSEO,
+			'pagesize='+ state.pageSize,
+			'page='+state.indexPage
+		].join("&");
+	   let url = `${url}/indexsearch`+params
 	   return fetchJsonp(url).then(function(response) {
 				return response.json();
 			}).then(res => {

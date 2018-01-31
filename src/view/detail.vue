@@ -21,7 +21,7 @@ export default {
   name: 'detail',
   data(){
     return {
-      waterItems:[]
+      // waterItems:[]
     }
   },
   computed:mapState({
