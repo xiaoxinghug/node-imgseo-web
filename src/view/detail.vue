@@ -1,11 +1,32 @@
 <template>
   <div>
+    <!--头部-->
     <header-component></header-component>
-    <detailimg-component :detailimg="detailimgData"v-if="!!detailimgData"></detailimg-component>
-    <merchant-component :merchant="merchantData"v-if="!!merchantData"></merchant-component>
-    <caseComponent :case="caseData"v-if="!!caseData"></caseComponent>
-    <detailwaterComponent :detailwater="detailWater"v-if="!!detailWater"></detailwaterComponent>
-    <footerComponent :title="title"></footerComponent>
+    <!--图片详情-->
+    <detailimg-component
+        v-if="!!detailimgData" 
+        :detailimg="detailimgData">
+    </detailimg-component>
+    <!--商户详情-->
+    <merchant-component 
+       v-if="!!merchantData"
+       :merchant="merchantData">
+    </merchant-component>
+    <!--案例详情-->
+    <caseComponent 
+        v-if="!!caseData"
+        :case="caseData">
+    </caseComponent>
+    <!--瀑布流列表-->
+    <detailwaterComponent 
+      v-if="!!detailWater"
+      :detailwater="detailWater">
+    </detailwaterComponent>
+    <!--底部内容-->
+    <footerComponent 
+    :title="title">
+    </footerComponent>
+    
   </div>
 </template>
 
@@ -53,6 +74,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-</style>

@@ -31,7 +31,8 @@ export default {
   computed:{
   		items: function (){
         var odditem = [];
-         for (var i = 0 ; i < this._props.detailwater.length; i ++){
+        var l = this._props.detailwater.length;
+         for (var i = 0 ; i < l; i ++){
                 if (i % 2 != 0){
                     odditem.push(this._props.detailwater[i]);
                 }
